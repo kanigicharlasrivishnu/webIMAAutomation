@@ -1,0 +1,29 @@
+# Node & Dependencies
+node_modules/
+dist/
+
+# Authentication & Credentials (NEVER COMMIT STORAGE STATES)
+auth/*.json
+!auth/.gitkeep
+.env
+.env.local
+
+# Test Execution Artifacts
+test-results/
+playwright-report/
+allure-results/
+allure-report/
+screenshots/*.png
+logs/*.log
+logs/*.json
+logs/**
+!logs/.gitkeep
+
+# Operating System Files
+Thumbs.db
+.DS_Store
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.swp

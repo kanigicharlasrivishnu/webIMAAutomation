@@ -1,0 +1,50 @@
+{
+  "name": "enterprise-playwright-framework",
+  "version": "1.0.0",
+  "description": "Enterprise-Level Self-Healing UI Automation Framework with TypeScript, Playwright, POM, and AI Healing",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:fast": "npx playwright test --workers=4 --retries=0",
+    "test:headed": "npx playwright test --headed",
+    "test:list": "npx playwright test --list",
+    "test:debug": "npx playwright test --debug",
+    "test:smoke": "npx playwright test --grep @smoke --workers=4",
+    "test:smoke:fast": "npx playwright test --grep @smoke --workers=4 --retries=0",
+    "test:regression": "npx playwright test --grep @regression",
+    "test:all": "npx playwright test",
+    "test:report": "npx playwright show-report playwright-report",
+    "test:allure": "npx tsx scripts/generate-allure.ts",
+    "test:allure:open": "npx allure open allure-report",
+    "test:parse": "npx tsx src/utils/test-case-parser.ts",
+    "test:plan": "npx tsx src/planners/test-planner.ts",
+    "test:generate": "npx tsx src/generators/test-generator.ts",
+    "test:heal:analyze": "npx tsx src/healing/healer.ts",
+    "test:heal:review": "npx tsx src/healing/healing-review.ts",
+    "codegen": "npx tsx scripts/launch-codegen.ts",
+    "typecheck": "npx tsc --noEmit",
+    "lint": "npx tsx scripts/lint-check.ts",
+    "format": "npx tsx scripts/format-check.ts"
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "page-object-model",
+    "self-healing",
+    "test-automation",
+    "enterprise",
+    "allure"
+  ],
+  "author": "Enterprise Automation Architecture Team",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "@types/node": "^22.13.9",
+    "allure-commandline": "^2.32.0",
+    "allure-playwright": "^3.2.0",
+    "dotenv": "^16.4.7",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "xlsx": "^0.18.5"
+  }
+}

@@ -1,0 +1,295 @@
+Test Case No,Description,Test Case Type,Execution Level,Pre-requisite Data,Test Data,Expected Output,Verification Step,Test Case Relevance,Device,Review Status,Active/Inactive,Status Comment,Last Updated By
+RPP-TXN-001,Existing Payment Transaction Tracking screen lists PP + general transactions,Positive,Sanity,Pat1 = patient with an active payment plan Plan1 that already has at least one processed charge; Pat2 = patient with a plain credit-card payment made outside any plan; Plan1 = monthly plan on saved card Card1; Amt1 = installment amount of Plan1.,PP charges (Delgado/Park/Abrams/Kim) + general patient payments.,"One row per transaction; PP rows carry the plan columns, general rows leave them blank; grand-total pinned.","1. Log in and open the Payment Transaction Tracking screen with no filters applied.
+2. Locate the charge belonging to Plan1 of Pat1 and confirm it is shown as its own single row.
+3. Locate the non-plan payment of Pat2 and confirm it is also listed in the same grid.
+4. On the Plan1 row, confirm the plan-related columns (plan code, installment number, scheduled date) carry values.
+5. On the Pat2 row, confirm those same plan-related columns are blank instead of showing borrowed or repeated values.
+6. Confirm the grand-total row stays pinned while scrolling and reflects the listed rows.",Txn - existing IMS screen + PP (WebIMS doc p3),Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-002,"Added PP columns: Plan Code, Applied, Unapplied, Surcharge, Total, Scheduled, Card No/Brand, Installment No, Txn Time in Txn Date",Positive,Detail,"Pat1 = patient with plan Plan1; Plan1 = plan with a plan code, a saved card Card1 and scheduled installments; Txn1 = a processed transaction of Plan1 for installment number N1.","REC0206027 (Delgado OUTBAL12, inst 1, applied $150, surcharge $4.50, total $154.50, Visa ****4242).",All added columns render correctly; Transaction Time appears within the Transaction Date column; installment number populated for plan charges.,"1. Open Payment Transaction Tracking and find Txn1.
+2. Confirm the grid shows the plan columns: Plan Code, Applied, Unapplied, Total and Scheduled date.
+3. Confirm the card columns show the masked number and brand of Card1 and never the full card number.
+4. Confirm the Installment No column shows N1 for this plan charge.
+5. Confirm the transaction time is displayed inside the Transaction Date column (date and time together) and not in a separate column.
+6. Open a non-plan transaction row and confirm the plan-specific columns stay blank for it.",Txn - added columns (WebIMS doc p4),Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-003,"Added filters: Plan Code, Transaction Status (successful/inqueue/failed), separate date & amount filters, Unapplied-only checkbox",Positive,Detail,Pat1 = patient with plan Plan1; Code1 = the unique plan code of Plan1; Txn-S = a successful charge of Plan1; Txn-F = a failed charge of Plan1; Txn-U = a transaction carrying an unapplied amount.,Plan Code = SURG; then Transaction Status = Failed; then Unapplied only.,Each added filter narrows correctly alongside the existing IMS filters.,"1. Open Payment Transaction Tracking with no filters and note the total row count.
+2. Enter Code1 in the Plan Code filter and confirm only transactions of Plan1 remain, including Txn-S and Txn-F.
+3. Clear it, set Transaction Status = Failed and confirm Txn-F is listed while Txn-S is not.
+4. Set Transaction Status to Successful and then to In queue in turn, and confirm each time only rows of that status are listed.
+5. Use the separate transaction-date range filter and confirm only transactions inside the chosen range remain.
+6. Use the amount filter and confirm only transactions inside the chosen amount range remain.
+7. Tick the Unapplied-only checkbox and confirm Txn-U remains while fully applied transactions drop off.
+8. Clear every filter and confirm the row count returns to the value noted in step 1.",Txn - added filters (WebIMS doc p4),Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-004,Status colouring: Successful green / Failed red / In queue amber-grey,Positive,Detail,Txn-S = a successful plan transaction; Txn-F = a failed plan transaction; Txn-Q = a queued/in-progress plan transaction.,"Failed rows (Delgado inst 5, Abrams inst 4); successful/in-queue for contrast.",Colour coding matches the status.,"1. Open Payment Transaction Tracking and list Txn-S, Txn-F and Txn-Q together.
+2. Confirm Txn-S is shown with the success (green) colour treatment.
+3. Confirm Txn-F is shown with the failed (red) colour treatment.
+4. Confirm Txn-Q is shown with the pending (amber/grey) colour treatment.
+5. Confirm the colour is applied to the status cell of every row of the same status, including after sorting and re-filtering.
+6. Confirm the status text itself is still readable so colour is not the only cue.",Txn - status colouring,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-005,Applied vs Unapplied split,Positive,In-Depth,"Pat1 = patient with plan Plan1; Txn-P = a transaction of Plan1 where only part of the collected money has been applied to bills, leaving a remainder open.","Park REC0206052: deducted $80, applied $55, unapplied $25.",Applied and Unapplied are separate columns (not one blended amount).,"1. Open Payment Transaction Tracking and find Txn-P.
+2. Confirm the grid has two distinct columns, Applied and Unapplied, and not one merged amount column.
+3. Confirm the Applied column shows only the portion posted against bills.
+4. Confirm the Unapplied column shows only the remaining open portion.
+5. Confirm Applied + Unapplied equals the amount actually deducted for Txn-P.
+6. Open a fully applied transaction and confirm its Unapplied value is zero/blank rather than repeating the applied figure.",Txn - applied/unapplied (pain #9),Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-006,Refund is available only for Successful transactions (verify for recurring),Validation,In-Depth,Txn-S = a successful recurring plan charge; Txn-F = a failed plan charge; Txn-Q = an in-queue plan charge; User1 = user holding the refund grant.,A successful PP charge vs a failed/in-queue PP charge.,"Refund is offered only on Successful transactions, including recurring payment charges; not on Failed/In-queue.","1. Log in as User1 and open Payment Transaction Tracking.
+2. Select Txn-S and confirm the Refund action is available and can be started.
+3. Select Txn-F and confirm the Refund action is hidden or disabled.
+4. Select Txn-Q and confirm the Refund action is hidden or disabled.
+5. Confirm the refund offered on Txn-S works for a recurring plan charge and is not limited to non-plan payments.
+6. Confirm no error or blank screen appears when switching between rows of different statuses.",Txn - refund successful-only (WebIMS doc p8),Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-007,Verify transaction request content and Status history,Positive,Detail,Txn1 = any processed plan transaction that has gone through at least one status change.,Open a PP transaction’s request content and status history.,Request content and status history are viewable and accurate for the transaction.,"1. Open Payment Transaction Tracking and select Txn1.
+2. Open the request content view for Txn1.
+3. Confirm the request details shown belong to Txn1 (same transaction reference and amount) and are readable.
+4. Open the status history for Txn1.
+5. Confirm every status the transaction passed through is listed with its date and time in chronological order.
+6. Confirm the latest status-history entry matches the status shown in the grid row.
+7. Close both views and confirm the grid returns without losing the current filters.",Txn - request/status history (WebIMS doc p8),Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-008,Existing credit-card transactions from other screens still appear (regression),Regression,Detail,Txn-Old = a credit-card transaction created from a non-payment-plan screen (for example a normal patient payment) before the payment-plan changes were delivered.,Records created from other CC screens.,Existing CC transaction records show correctly; adding PP columns/filters did not break base behaviour.,"1. Open Payment Transaction Tracking without filters.
+2. Confirm Txn-Old is still listed after the new plan columns and filters were added.
+3. Confirm its existing columns (date, amount, status, card details, receipt) still show the same information as before.
+4. Confirm the newly added plan columns are blank for Txn-Old and do not shift its other values into the wrong columns.
+5. Apply a pre-existing filter and confirm it still narrows the list correctly.
+6. Confirm sorting and paging still work over a list that mixes plan and non-plan transactions.",Txn - existing CC regression (WebIMS doc p8),Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-009,"Without-gateway receipt shows payment mode ""credit card without gateway""",Positive,Detail,Plan1 = payment plan created with the Without Gateway checkbox ticked and the receipt prompt answered YES; Sched1 = the scheduled date of the receipt created for it.,A without-gateway plan where the receipt prompt was answered YES.,"The receipt/transaction shows payment mode ""credit card without gateway"".","1. Open Payment Transaction Tracking (or the receipt) for Plan1.
+2. Locate the record created for Sched1.
+3. Confirm the payment mode is displayed as credit card without gateway.
+4. Confirm the record is tied to Plan1 and shows the scheduled date Sched1.
+5. Confirm no gateway authorisation reference is shown for it.
+6. Confirm a normal gateway-processed plan charge, by contrast, shows its usual credit-card mode.",Txn - without-gateway mode (WebIMS doc p10),Desktop,Reviewed,Inactive,Not required,srivishnu
+RPP-TXN-010,Open Credit receipt created per successful plan charge,Data Integrity,Detail,Pat1 = patient with plan Plan1; Txn-S = a successful charge of Plan1; Txn-F = a failed charge of Plan1.,Delgado successful charges.,Each successful plan charge produces an Open Credit receipt number (as in IMS).,"1. Open Payment Transaction Tracking and find Txn-S.
+2. Confirm a receipt/open-credit number is shown against Txn-S.
+3. Open that open-credit receipt and confirm it belongs to Pat1 and carries the amount collected in Txn-S.
+4. Confirm one successful charge produces exactly one open-credit receipt with no duplicates.
+5. Confirm Txn-F has no open-credit receipt number.
+6. Confirm the open credit is available for applying to the patient's bills, as in IMS.",Txn - open credit receipt (pain #45),Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-011,Future-scheduled (In queue) charges excluded from the collected list,Data Integrity,In-Depth,Plan1 = active plan with one already-collected installment and one installment scheduled for a future date Sched-Future; Today = the current business date.,"In-queue future rows (Delgado inst 7 08/01, Park inst 3 07/27); today 07/20.",Future-scheduled charges are not listed in the collected view.,"1. Open Payment Transaction Tracking on the collected view.
+2. Confirm the already-collected charge of Plan1 is listed.
+3. Confirm the charge scheduled for Sched-Future is not listed in the collected view.
+4. Confirm the grand total of the collected view does not include the future-scheduled amount.
+5. Switch the status filter to In queue and confirm the future charge is then visible.
+6. Confirm no future-dated charge is counted as money received anywhere on the screen.",Txn - future excluded,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-012,Retried charge shows both the failed attempt and the successful retry,State-transition,In-Depth,Plan1 = plan whose installment N1 first failed and was then retried successfully; Txn-F = the failed attempt; Txn-R = the successful retry of the same installment.,Delgado inst 5: Failed 06/01 then Successful retry REC0206041 06/02.,Both rows appear (failed red no receipt; retry green with receipt).,"1. Open Payment Transaction Tracking and filter to Plan1.
+2. Confirm both Txn-F and Txn-R are listed as separate rows for installment N1.
+3. Confirm Txn-F shows the failed status, the failed colour and no receipt number.
+4. Confirm Txn-R shows the successful status, the success colour and a receipt number.
+5. Confirm Txn-R carries a later transaction date/time than Txn-F.
+6. Confirm the failed attempt is not replaced or removed by the retry, so the history is preserved.
+7. Confirm only the successful retry amount is counted in the totals.",Txn - retry history,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-013,Grand-total row sums the monetary columns for visible rows,Data Integrity,Detail,Plan1 = plan with several transactions of differing amounts and applied/unapplied splits; Code1 = the plan code of Plan1.,Filter to one plan; check totals.,Grand total equals the sum of Amount/Approved/Applied/Unapplied/Surcharge/Total for visible rows.,"1. Open Payment Transaction Tracking and filter by Plan Code = Code1.
+2. Note every visible row's Amount, Approved, Applied, Unapplied and Total values.
+3. Confirm the grand-total row equals the arithmetic sum of each of those columns for the visible rows only.
+4. Narrow the filter so fewer rows are visible and confirm the grand total recalculates to the new visible set.
+5. Clear the filter and confirm the grand total grows to cover all listed rows.
+6. Confirm rows hidden by a filter are never included in the grand total.",Txn - grand total,Desktop,Reviewed,Active,There is not summary of grand total,srivishnu
+RPP-TXN-014,Empty-state on a no-match filter,Boundary,Detail,Filter1 = a combination of Transaction Status and Plan Code that is known to match no transaction in the database.,Status = Failed + Plan Code = OUTBAL6 (no match).,"No rows, no error; totals zero; clearing restores.","1. Open Payment Transaction Tracking and note the unfiltered row count.
+2. Apply Filter1.
+3. Confirm the grid shows no rows and displays a friendly empty message instead of an error or a blank screen.
+4. Confirm the grand-total row shows zero (or is hidden) rather than the previous totals.
+5. Confirm no application error prompt is raised.
+6. Clear Filter1 and confirm the original row count and totals are restored.",Txn - empty filter,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-016,Grants (View/Delete),Security,Detail,User-V = user who has the View grant for Payment Transaction Tracking; User-N = user with no View grant; User-ND = user with View but without the Delete grant.,User without Delete grant.,View required to open; delete-dependent actions disabled without Delete grant.,"1. Log in as User-N and try to open Payment Transaction Tracking.
+2. Confirm the screen cannot be opened and an access message is shown.
+3. Log in as User-V and confirm the screen opens and lists transactions.
+4. Log in as User-ND and confirm delete-dependent actions are hidden or disabled.
+5. Confirm User-ND can still view rows, filters and status history.
+6. Confirm the grant check cannot be bypassed by reopening the screen from another menu path.",Grants - txn tracking (pain #41),Desktop,Reviewed,Inactive,not required : there is no delete grants currently exists,srivishnu
+RPP-TXN-017,"The new ""In queue"" status is mapped to the existing ""In progress"" status.
+- Filter Transaction Status = In queue.
+- Compare with records previously shown as In progress.",Functional,Detail,Plan1 = active plan with a charge currently queued for processing (Txn-Q); Txn-IP = an existing transaction that the older screen showed as In progress.,Scheduled/queued plan charges.,"A queued plan charge shows as ""In queue"", which maps to the existing ""In progress"" status — the two mean the same pending state, so existing In-progress records and new In-queue records line up.","1. Open Payment Transaction Tracking and locate Txn-Q.
+2. Confirm its status reads as the queued/in-progress state and not as an unmapped or blank value.
+3. Set the Transaction Status filter to In queue and confirm both Txn-Q and Txn-IP are returned.
+4. Set the filter to In progress and confirm the same set of rows is returned.
+5. Confirm both rows use the same status colour, proving they are treated as one state.
+6. Confirm neither row is counted as successful or failed in the totals.",Data Integrity,All (Desktop · Tablet · iPad),Reviewed,Active,In queue ↔ In progress mapping.,srivishnu
+RPP-TXN-018,"For a Pay Now transaction, the Installment No shows as the last installment number plus one.
+- Collect a payment via Pay Now on a plan.
+- Find the resulting row in Transaction Tracking and read its Installment No.",Functional,Detail,Pat1 = patient with active plan Plan1; N1 = the highest installment number currently existing on Plan1; PayNow1 = a payment collected through the Pay Now option on Plan1.,A plan with N existing installments; a Pay Now collection.,The Pay Now transaction's Installment No is <last installment no + 1> — it is recorded as an extra installment beyond the scheduled ones.,"1. Open Plan1 for Pat1 and note the highest installment number N1 currently listed.
+2. Collect PayNow1 through the Pay Now option and complete the payment successfully.
+3. Open Payment Transaction Tracking and locate the transaction created by PayNow1.
+4. Confirm its Installment No is N1 + 1.
+5. Confirm the existing scheduled installments keep their original numbers and are not renumbered.
+6. Confirm the Pay Now row shows the amount actually collected and the successful status.",Data Integrity,All (Desktop · Tablet · iPad),Reviewed,Active,Pay now will not be available in the Payment trancking window.,srivishnu
+RPP-TXN-019,"The Unapplied-only filter shows both plan credits and other open credits, whether partially applied or fully unapplied.
+- Apply the ""Unapplied amount only"" filter.
+- Include a partially applied credit and a fully unapplied credit.",Functional,Detail,Credit-P = a payment-plan credit that has been only partly applied to bills; Credit-U = an open credit created outside any plan that is fully unapplied; Credit-A = a credit that is fully applied.,One partially applied credit; one fully unapplied credit; from different screens.,"With the Unapplied filter on, both credits appear — whether partially applied or fully unapplied — so staff can see every open credit in one place.","1. Open Payment Transaction Tracking without filters and confirm Credit-P, Credit-U and Credit-A are all present.
+2. Apply the Unapplied filter.
+3. Confirm Credit-P is still listed because part of it remains open.
+4. Confirm Credit-U is also listed even though it did not come from a payment plan.
+5. Confirm Credit-A drops out of the result.
+6. Confirm the Unapplied column of each returned row shows only the remaining open amount.
+7. Clear the filter and confirm all three rows return.",Functional,All (Desktop · Tablet · iPad),Reviewed,Active,Unapplied filter shows both credit kinds.,srivishnu
+RPP-TXN-020,"Refunds appear only in Transaction Tracking, never on the payment-plan (plan) level.
+- Refund a successful plan transaction from Transaction Tracking.
+- Open the corresponding payment plan window and look for any refund entry.",Functional,Detail,Pat1 = patient with plan Plan1; Txn-S = a successful charge of Plan1 that is then refunded; Refund1 = the refund raised against Txn-S.,A refunded successful plan transaction.,"The refund is visible in Transaction Tracking, but no refund entry (full or partial) is shown on the payment-plan level. The plan level does not display refunds.","1. Open Payment Transaction Tracking, select Txn-S and complete Refund1.
+2. Confirm Refund1 is visible in Payment Transaction Tracking against Txn-S.
+3. Open the payment plan window of Plan1 for Pat1.
+4. Confirm no refund row, refund column or refund flag is displayed anywhere on the plan level.
+5. Confirm the installment paid by Txn-S keeps the status the plan level already showed and does not change into a refund state.
+6. Confirm no partial-refund indicator or icon appears on the plan window either.
+7. Reopen both screens and confirm the refund information remains only in Payment Transaction Tracking.",Data Integrity,All (Desktop · Tablet · iPad),Reviewed,Active,No refund entry on plan level.,srivishnu
+RPP-TXN-021,"Total Amount = Installment Amount + Surcharge, and the Surcharge column shows the CC surcharge per transaction.
+- Find a plan transaction that carried a CC surcharge.
+- Compare the Surcharge column and the Total Amount column against the installment amount.",Functional,Detail,Txn-Sur = a plan transaction that carried a credit-card surcharge; Amt1 = the installment amount of Txn-Sur; Txn-NoSur = a plan transaction with no surcharge. (Surcharge visibility depends on the surcharge configuration being switched on.),A transaction with a CC surcharge.,"The Surcharge column shows the CC surcharge charged on that transaction, and the Total Amount equals Installment Amount + Surcharge. A transaction with no surcharge shows Total = Installment Amount.","1. Open Payment Transaction Tracking and locate Txn-Sur.
+2. Confirm the Surcharge column shows the surcharge charged on that transaction.
+3. Confirm the Total Amount column equals Amt1 plus that surcharge.
+4. Locate Txn-NoSur and confirm its Total Amount equals its installment amount with nothing added.
+5. Confirm the surcharge value on the row matches the surcharge recorded on the corresponding receipt.
+6. Confirm the grand total adds the surcharge amounts consistently with the row values.",Functional,All (Desktop · Tablet · iPad),Reviewed,Inactive,Total = installment + surcharge; surcharge column.,srivishnu
+RPP-TXN-022,Verify that only Credit card transactions will be listed in this screen. Any other payment mode which was used for recurring payment plan payment.,Positive,Sanity,"Plan1 = payment plan paid by credit card producing transaction Txn-CC; Plan2 = payment plan where a payment was recorded through a non-credit-card mode such as cash or cheque, producing Pay-NonCC.",Recurring payments with different payment methods.,This screen should show only credit card transactions.,"1. Open Payment Transaction Tracking with no filters.
+2. Confirm Txn-CC from Plan1 is listed.
+3. Confirm Pay-NonCC from Plan2 is not listed anywhere in the grid.
+4. Search or filter by the patient of Plan2 and confirm only credit-card transactions are returned.
+5. Open Plan2 and confirm the non-credit-card payment is still recorded there, proving it exists but is simply not shown on this screen.
+6. Confirm the grand total does not include any non-credit-card payment.",Software Flow,All (Desktop · Tablet · iPad),Reviewed,Active,,srivishnu
+RPP-TXN-023,[New] Opening Payment Transaction Tracking from inside a payment plan shows a reduced column set (the plan-context columns are hidden),UI,Detail,Pat1 = patient with an active payment plan Plan1 that has at least one processed transaction; Plan1 = plan with a plan code and a saved card Card1; Col-Full = the column set the screen shows when opened standalone.,Open Plan1 of Pat1 and launch Payment Transaction Tracking from the plan window.,"When the screen is opened from the payment plan, the columns that only repeat plan-level information are hidden, so the tester sees a shorter, focused column set instead of the full standalone list.","1. Open Payment Transaction Tracking standalone and write down the full visible column list Col-Full.
+2. Open Plan1 for Pat1 and launch Payment Transaction Tracking from inside the plan window.
+3. Compare the visible columns with Col-Full and confirm the plan-context columns are hidden here.
+4. Confirm the remaining columns are not squeezed or misaligned and each value sits under its own header.
+5. Confirm the transactions listed still belong to Plan1 and show correct amounts and statuses.
+6. Close and reopen from the plan window and confirm the same reduced column set is shown again.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-024,[New] Opening Payment Transaction Tracking standalone (from the menu) still shows the complete column set,UI,Detail,Pat1 = patient with an active payment plan Plan1 that has processed transactions; Col-Full = the complete column set defined for the standalone screen.,"Open Payment Transaction Tracking from its own menu entry, with no plan context.","Opened standalone the screen shows every column it is designed to show, including the ones hidden in the plan context, so nothing is permanently lost.","1. Open Payment Transaction Tracking from its own menu entry.
+2. Confirm every column of Col-Full is present, including those hidden when the screen is opened from a plan.
+3. Confirm rows of Plan1 and rows of other patients are all listed here.
+4. Confirm the plan-specific columns carry values for plan rows and stay blank for non-plan rows.
+5. Switch to the plan-context view and back to standalone and confirm the full set returns each time.
+6. Confirm the column visibility difference is driven only by how the screen was opened, not by the logged-in user.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-025,"[New] Hidden columns in the plan context do not change the data, filters or totals that are returned",Data Integrity,In-Depth,Pat1 = patient with plan Plan1 having several transactions of different statuses; Code1 = the plan code of Plan1.,Compare the Plan1 rows shown in the plan-context view with the same rows filtered by Code1 in the standalone view.,"Hiding columns in the plan context only affects what is displayed — the same transactions, the same amounts and the same totals are returned in both views.","1. Open Payment Transaction Tracking standalone and filter by Plan Code = Code1; note every row and the totals.
+2. Open Plan1 and launch Payment Transaction Tracking from inside the plan window.
+3. Confirm exactly the same transactions are listed, with no row added or missing.
+4. Confirm the amounts and statuses of each row match what was noted in step 1.
+5. Confirm the totals shown match the standalone totals for the same rows.
+6. Apply a status filter in the plan context and confirm it narrows the rows correctly even though some columns are hidden.
+7. Confirm no hidden column's value has been shifted into a visible column.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-026,[New] Installment numbers are shown in a sequential order in the Payment Transaction Tracking screen,Functional,Detail,Pat1 = patient with plan Plan1 having at least four processed installments; N1..Nn = the installment numbers of Plan1 in schedule order.,Filter Payment Transaction Tracking to Plan1 and read the Installment No column down the list.,"The installment numbers run in a clean sequence (1, 2, 3, ...) in schedule order with no gaps, duplicates or random ordering.","1. Open Payment Transaction Tracking and filter to Plan1.
+2. Sort the list by scheduled date ascending.
+3. Read the Installment No column top to bottom and confirm the numbers increase one by one starting from the first installment.
+4. Confirm there is no gap in the sequence and no number repeats for a different scheduled installment.
+5. Confirm the installment number on each row matches the number shown for the same installment on the plan window.
+6. Re-sort by transaction date and confirm the installment numbers stay attached to their own rows.",Data Integrity,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-027,"[New] A failed attempt and its retry share the same installment number, so the sequence is not broken",Data Integrity,In-Depth,Plan1 = plan whose installment N1 failed once and was retried successfully; Txn-F = the failed attempt; Txn-R = the successful retry.,Filter Payment Transaction Tracking to Plan1 and inspect the installment numbers of Txn-F and Txn-R.,"Both the failed attempt and the retry carry installment number N1; the retry does not consume a new number, so the sequence of installments stays unbroken.","1. Open Payment Transaction Tracking and filter to Plan1.
+2. Locate Txn-F and Txn-R for the same installment.
+3. Confirm both rows show the same Installment No, N1.
+4. Confirm the next scheduled installment still carries N1 + 1 and was not pushed forward by the retry.
+5. Confirm reading the whole list still gives a gap-free sequence.
+6. Confirm the plan window shows the same installment number for that installment.",Data Integrity,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-028,[New] Several consecutive Pay Now payments each take the next installment number (last + 1 each time),Functional,In-Depth,"Pat1 = patient with active plan Plan1 whose highest existing installment number is N1; PayNow1, PayNow2, PayNow3 = three Pay Now payments collected one after another on Plan1.","Collect PayNow1, then PayNow2, then PayNow3 on Plan1 and read the Installment No of each resulting transaction.","The first Pay Now is numbered N1 + 1, the second N1 + 2 and the third N1 + 3 — each Pay Now takes the next number after the highest one existing at that moment, with no duplicates.","1. Open Plan1 and note the highest installment number N1.
+2. Collect PayNow1 successfully and confirm in Payment Transaction Tracking that its Installment No is N1 + 1.
+3. Collect PayNow2 successfully and confirm its Installment No is N1 + 2.
+4. Collect PayNow3 successfully and confirm its Installment No is N1 + 3.
+5. Confirm no two of the three rows share an installment number.
+6. Confirm the originally scheduled installments keep their own numbers unchanged.
+7. Reopen the screen and confirm the numbers persist as recorded.",Data Integrity,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-029,[New] Pay Now on a plan that has no installment recorded yet gets the first installment number,Boundary,Detail,Pat1 = patient with a newly created plan Plan-New on which no installment has been processed and no installment row exists yet; PayNow1 = the first Pay Now payment collected on Plan-New.,"Collect PayNow1 on Plan-New before any scheduled charge has run, then open Payment Transaction Tracking.","With no previous installment to count from, the Pay Now transaction is numbered as the first installment (1) rather than showing blank, zero or an error.","1. Open Plan-New and confirm no installment has been processed yet.
+2. Collect PayNow1 through Pay Now and complete it successfully.
+3. Open Payment Transaction Tracking and locate the PayNow1 transaction.
+4. Confirm its Installment No is 1 and is neither blank nor zero nor a negative value.
+5. Confirm no error or warning was raised while creating the transaction.
+6. Let the first scheduled charge run afterwards and confirm it continues the sequence rather than reusing number 1.",Data Integrity,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-030,[New] A Pay Now transaction keeps its place in the sequential installment ordering of the plan,Data Integrity,In-Depth,Pat1 = patient with plan Plan1 having scheduled installments up to N1 plus one Pay Now transaction numbered N1 + 1.,"Filter Payment Transaction Tracking to Plan1, sort by Installment No and inspect the ordering.","The Pay Now row sits at the end of the sequence as N1 + 1 and the scheduled installments keep their original order, so the whole list still reads as one continuous sequence.","1. Open Payment Transaction Tracking and filter to Plan1.
+2. Sort the list by Installment No ascending.
+3. Confirm the scheduled installments appear in their original order from the first number to N1.
+4. Confirm the Pay Now row appears immediately after them as N1 + 1.
+5. Confirm no scheduled installment was renumbered to make room for the Pay Now row.
+6. Confirm the plan window shows the same sequence for the same transactions.",Data Integrity,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-031,[New] Filtering by In queue and by In progress returns the same rows (round-trip of the mapped status),Functional,In-Depth,Txn-Q = a plan charge queued for processing; Txn-IP = an older transaction stored with the In progress status; Txn-S = a successful transaction used as a control.,"Apply the Transaction Status filter as In queue, then as In progress, and compare the two result sets.","Because In queue is mapped to the existing In progress status, both filter values return exactly the same rows, and neither returns successful or failed transactions.","1. Open Payment Transaction Tracking and set Transaction Status = In queue; note every row returned.
+2. Clear the filter and set Transaction Status = In progress.
+3. Confirm exactly the same rows are returned, including both Txn-Q and Txn-IP.
+4. Confirm Txn-S is excluded from both result sets.
+5. Confirm the row count and the totals are identical for both filter values.
+6. Combine the status filter with a plan-code filter and confirm the two status values still behave identically.
+7. Clear the filter and confirm all rows return.",Data Integrity,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-032,[New] In queue and In progress rows are shown with the same status colour and are never counted as paid,UI,Detail,Txn-Q = a queued plan charge; Txn-IP = an older In progress transaction; Txn-S = a successful transaction; Txn-F = a failed transaction.,"List Txn-Q, Txn-IP, Txn-S and Txn-F together and compare their status colouring and their effect on the totals.",Txn-Q and Txn-IP use the same pending colour as each other and a different colour from successful and failed rows; neither adds to collected totals.,"1. Open Payment Transaction Tracking so all four transactions are visible.
+2. Confirm Txn-Q and Txn-IP carry the same pending status colour.
+3. Confirm that colour is clearly different from the successful colour on Txn-S and the failed colour on Txn-F.
+4. Confirm the status text on both pending rows describes the same pending state.
+5. Confirm the collected/received totals include Txn-S but not Txn-Q or Txn-IP.
+6. Re-sort the grid and confirm the colouring stays with the correct rows.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-033,[New] A full refund of a plan charge is never displayed at the payment-plan level,Negative,Detail,Pat1 = patient with plan Plan1; Txn-S = a successful charge of Plan1 covering installment N1; Refund-Full = a full refund of Txn-S raised from Payment Transaction Tracking.,"Raise Refund-Full against Txn-S, then open the payment plan window of Plan1 and look for any refund information.","The plan window shows no refund row, no refund column, no refund amount and no refund icon — the refund only exists in Payment Transaction Tracking.","1. Open Payment Transaction Tracking, select Txn-S and complete Refund-Full.
+2. Confirm the refund is recorded and visible in Payment Transaction Tracking.
+3. Open Plan1 for Pat1 and review the installment section and the plan summary.
+4. Confirm no refund entry, refund column or refund total is displayed anywhere on the plan.
+5. Confirm installment N1 keeps the status it already had and does not flip to a refunded state.
+6. Refresh the plan window and confirm the refund still does not appear.
+7. Confirm the refund remains fully visible on the transaction tracking screen.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-034,[New] A partial refund of a plan charge shows no partial-refund indicator at the payment-plan level,Negative,In-Depth,Pat1 = patient with plan Plan1; Txn-S = a successful charge of Plan1; Refund-Part = a refund of only part of Txn-S's amount.,"Raise Refund-Part against Txn-S, then inspect the plan window of Plan1 for any partial-refund marking.","No partial-refund indicator, badge, amount or changed status appears on the plan level; the partial refund is visible only in Payment Transaction Tracking with the refunded amount.","1. Open Payment Transaction Tracking, select Txn-S and raise Refund-Part for part of the amount.
+2. Confirm the partial refund is recorded in Payment Transaction Tracking with the refunded portion.
+3. Open Plan1 and review the installment row that Txn-S paid.
+4. Confirm no partial-refund badge, icon, note or amount is shown for it.
+5. Confirm the installment's paid amount and status on the plan are unchanged by the partial refund.
+6. Confirm the plan balance shown on the plan window is not adjusted by the partial refund.
+7. Reopen both screens and confirm the behaviour is consistent.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-035,[New] A partially applied plan credit is returned by the Unapplied filter,Functional,Detail,Credit-P = a payment-plan credit where part of the money has been applied to bills and part is still open; Credit-A = a plan credit that is fully applied.,Apply the Unapplied filter on Payment Transaction Tracking and look for Credit-P and Credit-A.,"Credit-P is listed because it still has an open portion, while Credit-A is excluded; the Unapplied column shows only the remaining open amount of Credit-P.","1. Open Payment Transaction Tracking with no filters and confirm both Credit-P and Credit-A are present.
+2. Apply the Unapplied filter.
+3. Confirm Credit-P is still listed.
+4. Confirm Credit-A is excluded from the result.
+5. Confirm the Unapplied column of Credit-P shows only the still-open portion and not the whole collected amount.
+6. Apply the rest of Credit-P to bills, re-apply the filter and confirm it now drops out as well.",Data Integrity,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-036,[New] The Unapplied filter returns a mixed set of plan credits and other open credits together,Functional,In-Depth,Credit-PP = a partially applied payment-plan credit; Credit-PU = a fully unapplied payment-plan credit; Credit-OP = a partially applied open credit created outside any plan; Credit-OU = a fully unapplied open credit created outside any plan.,Apply the Unapplied filter and review the mixed result set of plan and non-plan credits.,"All four credits are listed together under the Unapplied filter regardless of their source and regardless of whether they are partly or fully unapplied, so staff see every open credit in one place.","1. Open Payment Transaction Tracking and apply the Unapplied filter.
+2. Confirm Credit-PP and Credit-PU (plan credits) are both listed.
+3. Confirm Credit-OP and Credit-OU (non-plan open credits) are also listed in the same grid.
+4. Confirm each row's Unapplied column shows its own remaining open amount.
+5. Confirm plan rows carry the plan columns while non-plan rows leave them blank.
+6. Confirm the grand total of the Unapplied column equals the sum of the four remaining open amounts.
+7. Clear the filter and confirm fully applied credits reappear in the list.",Data Integrity,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-037,[New] The Unapplied filter excludes credits that have been fully applied,Negative,Detail,"Credit-A1 = a plan credit fully applied to bills; Credit-A2 = a non-plan open credit fully applied to bills; Credit-U = a credit with an open portion, used as a control.",Apply the Unapplied filter and confirm the fully applied credits are not returned.,"Neither Credit-A1 nor Credit-A2 is returned by the Unapplied filter, while Credit-U is; clearing the filter brings all three back.","1. Open Payment Transaction Tracking without filters and confirm all three credits are listed.
+2. Apply the Unapplied filter.
+3. Confirm Credit-A1 is not returned.
+4. Confirm Credit-A2 is not returned.
+5. Confirm Credit-U is returned.
+6. Confirm the grand total under the filter counts only the open amount of Credit-U.
+7. Clear the filter and confirm all three credits are listed again.",Data Integrity,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-038,[New] A card-expiry failure shows a Failed transaction here while the plan shows the installment as Overdue,State-transition,In-Depth,Pat1 = patient with plan Plan1 on saved card Card-Exp whose expiry month has already passed; N1 = the installment whose scheduled charge is attempted on Card-Exp.,"Let the scheduled charge for installment N1 run against the expired card Card-Exp, then compare Payment Transaction Tracking and the plan window.","Payment Transaction Tracking records a Failed credit-card transaction for N1, and the plan window shows installment N1 with an Overdue status in its payment column.","1. Confirm Plan1 uses Card-Exp and that its expiry has passed.
+2. Let the scheduled charge for installment N1 run.
+3. Open Payment Transaction Tracking and confirm a transaction exists for N1 with the Failed status and the failed colour.
+4. Confirm no receipt or open credit was created for that failed transaction.
+5. Open Plan1 and confirm installment N1 shows Overdue in the payment column.
+6. Confirm the plan moved on to the next installment without marking N1 as paid.
+7. Confirm the failure reason recorded on the transaction points to the card expiry.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-039,[New] A declined card shows a Failed transaction here while the plan installment becomes Overdue,State-transition,Detail,Pat1 = patient with plan Plan1 on a valid but declinable card Card-D (for example insufficient funds); N1 = the installment charged on Card-D.,"Let the scheduled charge for installment N1 be declined by the gateway, then compare both screens.","The declined attempt is recorded here as a Failed transaction with the decline reason, and installment N1 is shown as Overdue on the plan.","1. Let the scheduled charge for installment N1 run and be declined.
+2. Open Payment Transaction Tracking and confirm a Failed transaction exists for N1.
+3. Confirm the status history or request content records the decline reason.
+4. Confirm no receipt or open credit was produced for the declined attempt.
+5. Open Plan1 and confirm installment N1 shows Overdue.
+6. Confirm the Overdue amount at plan level includes this installment's amount.
+7. Confirm no notification of successful payment was produced for it.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-040,[New] A without-gateway plan shows a Failed status here for the missed charge while the installment turns Overdue,State-transition,In-Depth,"Plan-WG = an active payment plan created with the Without Gateway option, so no automatic gateway charge takes place; N1 = the installment whose scheduled date has passed without payment.","Let the scheduled date of installment N1 on Plan-WG pass without any manual payment, then review both screens.",The plan shows installment N1 as Overdue in the payment column; the transaction tracking screen shows the failed credit-card status for the missed charge rather than a successful one.,"1. Confirm Plan-WG is created with the Without Gateway option.
+2. Let the scheduled date of installment N1 pass with no manual payment collected.
+3. Open Plan-WG and confirm installment N1 shows Overdue in the payment column.
+4. Open Payment Transaction Tracking and confirm the missed charge is not reported as successful.
+5. Confirm no receipt or open credit was created automatically for N1.
+6. Confirm the plan has moved on to the next installment while N1 stays Overdue.
+7. Confirm the plan's Overdue Amount now includes N1's amount.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-041,[New] Surcharge-related columns are hidden in the Payment Transaction Tracking grid (surcharge deferred to a separate ER),UI,Detail,Pat1 = patient with plan Plan1 having processed transactions; Col-Visible = the currently visible column list of the transaction tracking grid.,"Open Payment Transaction Tracking, review the header row and any column-chooser list for surcharge columns.","No surcharge column is visible in the grid; the amount columns are complete and correctly aligned without it, because surcharge handling is deferred to a separate ER.","1. Open Payment Transaction Tracking with no filters.
+2. Read the header row and confirm no surcharge column is displayed.
+3. Open the column chooser (if available) and confirm no surcharge column can be switched on from the screen.
+4. Confirm the remaining amount columns (amount, applied, unapplied, total) line up with their values and none is blank because of the removal.
+5. Confirm the grand-total row totals only the visible amount columns.
+6. Open the screen from a payment plan as well and confirm no surcharge column appears there either.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-042,[New] Surcharge-related columns are also absent from the Payment Transaction Tracking export,Data Integrity,Detail,Pat1 = patient with plan Plan1 having processed transactions; Export1 = the file produced by the export action of the transaction tracking screen.,Export the transaction tracking list and inspect the header row of Export1.,The exported file carries the same columns as the screen and contains no surcharge column or surcharge values.,"1. Open Payment Transaction Tracking and note the visible columns.
+2. Run the export action to produce Export1.
+3. Open Export1 and read its header row.
+4. Confirm no surcharge column is present in the export.
+5. Confirm the export headers match the on-screen columns one for one and in the same order.
+6. Confirm each exported row's values sit under the correct header with no shift caused by the removed column.
+7. Export again after applying a filter and confirm the header set is unchanged.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-043,"[New] A Without Gateway plan creates no transaction and no receipt automatically, so nothing is listed here",Negative,Detail,Pat-WG = patient with a newly created plan Plan-WG saved with the Without Gateway option and with no manual payment taken yet.,"Create and activate Plan-WG, let its first scheduled date arrive, then search Payment Transaction Tracking for Pat-WG.","No transaction row and no receipt is created automatically for Plan-WG, so the transaction tracking screen shows nothing for that plan until a manual payment is made.","1. Create and activate Plan-WG for Pat-WG with the Without Gateway option.
+2. Let the first scheduled date arrive without collecting anything manually.
+3. Open Payment Transaction Tracking and search for Pat-WG or for Plan-WG's plan code.
+4. Confirm no transaction row exists for Plan-WG.
+5. Confirm no receipt or open credit has been produced for it on the receipt screens.
+6. Confirm the empty result is presented cleanly with no error.
+7. Confirm the plan itself still exists and is active on the plan screen.",Software Flow,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-044,[New] A manual Pay Now on a Without Gateway plan creates the first transaction visible in this screen,End-to-End,In-Depth,Pat-WG = patient with active plan Plan-WG created with the Without Gateway option and with no transaction so far; PayNow-WG = a manual payment collected on Plan-WG through Pay Now.,Collect PayNow-WG manually on Plan-WG and then open Payment Transaction Tracking.,"Only after the manual Pay Now does a transaction appear for Plan-WG, showing the collected amount, its installment number and its receipt; before that the screen had nothing for this plan.","1. Confirm Payment Transaction Tracking currently lists nothing for Plan-WG.
+2. Open Plan-WG and collect PayNow-WG through the Pay Now option.
+3. Complete the payment and confirm the receipt is shown to the user.
+4. Open Payment Transaction Tracking and confirm exactly one new row now exists for Plan-WG.
+5. Confirm the row shows the collected amount and the installment number given to the Pay Now payment.
+6. Confirm the corresponding installment status on the plan updates from Overdue/Pending to Paid.
+7. Confirm no extra automatic transaction was created alongside the manual one.",Business Use Case,Desktop,Reviewed,Active,,srivishnu
+RPP-TXN-045,"[New] End-to-end: failed charge becomes Overdue on the plan and is cleared by a Pay Now, with both rows visible here",End-to-End,In-Depth,Pat1 = patient with active plan Plan1; N1 = the installment whose scheduled charge fails; PayNow1 = the Pay Now payment later collected to clear the overdue amount.,"Fail the scheduled charge for N1, then collect PayNow1 for the overdue amount and review both screens.","The failed attempt and the later successful Pay Now both remain listed in Payment Transaction Tracking, and the installment on the plan moves from Overdue to Paid once the Pay Now succeeds.","1. Let the scheduled charge for installment N1 fail and confirm the failed row appears in Payment Transaction Tracking.
+2. Open Plan1 and confirm installment N1 shows Overdue and is included in the plan's Overdue Amount.
+3. Collect PayNow1 for the overdue amount through Pay Now and complete it successfully.
+4. Return to Payment Transaction Tracking and confirm both the earlier failed row and the new successful row are listed.
+5. Confirm the successful row carries a receipt/open-credit number and the failed row does not.
+6. Open Plan1 and confirm installment N1 now shows Paid and the Overdue Amount has reduced accordingly.
+7. Confirm no duplicate payment was taken for the same installment.",Business Use Case,Desktop,Reviewed,Active,,srivishnu

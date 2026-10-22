@@ -1,0 +1,3151 @@
+{
+  "generatedAt": "2026-10-22T06:43:05.795Z",
+  "summary": {
+    "totalSourceTestCases": 380,
+    "automated": 332,
+    "skipped": 37,
+    "blocked": 5,
+    "clarificationRequired": 6,
+    "moduleBreakdown": {
+      "Recurring Payment Plan": {
+        "total": 125,
+        "automated": 104,
+        "skipped": 18,
+        "blocked": 0,
+        "clarification": 3
+      },
+      "Payment Plan Setup": {
+        "total": 44,
+        "automated": 38,
+        "skipped": 3,
+        "blocked": 3,
+        "clarification": 0
+      },
+      "Plan Level Tracking": {
+        "total": 43,
+        "automated": 35,
+        "skipped": 6,
+        "blocked": 1,
+        "clarification": 1
+      },
+      "Transaction Tracking": {
+        "total": 45,
+        "automated": 41,
+        "skipped": 3,
+        "blocked": 1,
+        "clarification": 0
+      },
+      "Notification Reminder": {
+        "total": 48,
+        "automated": 44,
+        "skipped": 3,
+        "blocked": 0,
+        "clarification": 1
+      },
+      "Templates & Letters": {
+        "total": 37,
+        "automated": 32,
+        "skipped": 4,
+        "blocked": 0,
+        "clarification": 1
+      },
+      "Reconciliation & Statements": {
+        "total": 38,
+        "automated": 38,
+        "skipped": 0,
+        "blocked": 0,
+        "clarification": 0
+      }
+    }
+  },
+  "mappings": [
+    {
+      "testCaseId": "RPP-PLAN-001",
+      "title": "Open the Recurring Payment Plan window from Patient Master > Payment Plan and confirm the patient list view loads with that patient’s plans and a pinned grand-total row.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-002",
+      "title": "Confirm the list view columns are complete, including Card No, Brand and Expiry (previously hidden) and Last Payment date/amount/status.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-003",
+      "title": "Confirm the per-row Select checkbox has been removed from the Recurring Payment Plan list view (per BA decision).",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-004",
+      "title": "Confirm an inactive / completed plan renders with the red (danger) row styling.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "We do not have any way to show the completed plan."
+    },
+    {
+      "testCaseId": "RPP-PLAN-005",
+      "title": "Plan Code is NOT mandatory on the payment plan and the default plan code dropdown should be blank.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-006",
+      "title": "Selecting a plan code populates Amount and other details from setup",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-007",
+      "title": "Setup amount overrides a manually entered amount when a plan code is selected after, Verify all the fields from setup should be replaced.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-008",
+      "title": "Inactive plan code is shown red in the dropdown with a confirm prompt on selection",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-009",
+      "title": "Current patient balance is NOT displayed anywhere on the payment plan screen",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "not required to show the patient balance",
+      "statusComment": "not required to show the patient balance"
+    },
+    {
+      "testCaseId": "RPP-PLAN-010",
+      "title": "CC Surcharge shows at the patient payment-plan level (not setup) once card details are entered",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded - surcharge functionality is deferred to a separate ER.\"\"\nNo A:H rewrite required. Do not send this case to automation; current no-surcharge behavior is covered by RPP-PLAN-118/119/120.\"",
+      "statusComment": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded - surcharge functionality is deferred to a separate ER.\"\"\nNo A:H rewrite required. Do not send this case to automation; current no-surcharge behavior is covered by RPP-PLAN-118/119/120.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-011",
+      "title": "The CC surcharge field should be removed when the user select the 'Without Gateway' option.",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded - surcharge functionality is deferred to a separate ER.\"\"\nDo not automate this case.\"",
+      "statusComment": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded - surcharge functionality is deferred to a separate ER.\"\"\nDo not automate this case.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-012",
+      "title": "Due On shows Start Date / End Date / Term (Event Scheduler Recurring style); no Yearly/Time/Occurrence",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"NO TEST-CASE CONTENT CHANGE.\nThe requirement source says Yearly, Time and Occurrence must NOT be available. Mark this case Reviewed.\nExecution note: if the current build shows Yearly/Time/Occurrence, log an implementation defect; do not change Expected Output to match the defect.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-013",
+      "title": "Start Date defaults to today on a new plan",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-014",
+      "title": "Start/End date cannot be the same or a past date",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"Expected Output: replace with:\n\"\"The plan cannot be saved when Start Date and End Date are the same, when a new plan uses a past Start Date, or when End Date is earlier than Start Date. A date-validation indication is shown. After correcting to a valid date range, Save succeeds.\"\"\n\nVerification Step: replace with:\n\"\"1. Create a new plan. 2. Set Start Date and End Date to the same valid date and click Save; assert Save is blocked and date validation is shown. 3. Set Start Date to a past date and click Save; assert Save is blocked. 4. Set Start Date to a valid date and End Date earlier than Start Date; assert Save is blocked. 5. Correct the dates to a valid range and assert Save succeeds.\"\"\nMark Reviewed after update.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-015",
+      "title": "Daily frequency removes the weekday selector on the plan window",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"NO TEST-CASE CONTENT CHANGE.\nRequirement says Daily must not show a weekday selector. Mark Reviewed.\nExecution note: if weekday controls are visible for Daily in the build, log a defect against this requirement.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-016",
+      "title": "Every N accepts up to a 2-digit number for Days/Weekly/Monthly",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"Expected Output: replace with:\n\"\"Every N stores and displays at most two digits for Day(s), Week(s) and Month(s). Values 01-99 are accepted; a 3-digit value cannot be retained or saved.\"\"\n\nVerification Step: replace with:\n\"\"1. Create a new plan. 2. Set unit to Day(s), enter 99 and assert 99 is retained. 3. Attempt to enter 100 and assert the field never retains/saves more than two digits. 4. Repeat for Week(s). 5. Repeat for Month(s). 6. Save/reopen a valid 2-digit value and assert it persists exactly.\"\"\nMark Reviewed after update.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-017",
+      "title": "Installments are derived from Start-End date + frequency and match the displayed schedule",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"Test Data: replace the hard-coded past dates with:\n\"\"Start1 = a valid future date (for example, the first day of next month); End1 = 11 monthly intervals after Start1; Every 1 Month on Start1's day; Amt1 = known installment amount.\"\"\nNo other column change required.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-018",
+      "title": "Installment date math verified across frequency combinations",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-019",
+      "title": "No End Date -> 12 installments shown by default with a bottom note",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-020",
+      "title": "Installments preview: paid vs upcoming rows, next highlighted, running balance",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-021",
+      "title": "\"Deduct amount only if patient has balance\" defaults to TRUE on create",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-022",
+      "title": "When the patient has balance amount less than the payment plan amount and above check box is checked then it should deduct the balance amount only.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-023",
+      "title": "Deduct-if-balance deducts only up to the patient balance at run time (live), no screen/installment impact",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "expected result updated"
+    },
+    {
+      "testCaseId": "RPP-PLAN-024",
+      "title": "Deduct-if-balance + balance = 0 -> no transaction that cycle; resumes when balance added",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-025",
+      "title": "Deduct-if-balance + balance < installment -> last installment reduced to balance + surcharge",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded - surcharge is not part of this ER; reduced-balance behavior is covered by RPP-PLAN-022/023.\"\"\nDo not automate.\"",
+      "statusComment": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded - surcharge is not part of this ER; reduced-balance behavior is covered by RPP-PLAN-022/023.\"\"\nDo not automate.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-026",
+      "title": "Payment Method / card availability with and without OpenEdge",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-027",
+      "title": "\"Use this card only for this payment plan\" auto-checks when a card is selected",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-028",
+      "title": "Without-gateway checkbox grays out Payment Method and shows the receipt prompt",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "not required",
+      "statusComment": "not required"
+    },
+    {
+      "testCaseId": "RPP-PLAN-029",
+      "title": "Without-gateway prompt -> NO creates no receipt and no transaction",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded old Without-Gateway prompt branch; use RPP-PLAN-112.\"\"\nDo not automate.\"",
+      "statusComment": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded old Without-Gateway prompt branch; use RPP-PLAN-112.\"\"\nDo not automate.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-030",
+      "title": "Agreement template preview with signature / agree-and-continue on the setup screen",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-031",
+      "title": "Warning when saving the plan without checking the agreement checkbox",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-032",
+      "title": "Term lock after first charge: Plan Code, Amount, Frequency, Start Date become read-only",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"Test Case Type: change from Security to State-transition.\nNo change required to Description, Pre-Req, Test Data, Expected Output or Verification Step.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-033",
+      "title": "Delete button disabled once the plan has run at least once",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"Test Case Type: change from Security to State-transition.\nNo other change required.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-034",
+      "title": "Pay Now is disabled until the plan is saved",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "\"KEEP this as the canonical case for \"\"Pay Now disabled until plan is saved\"\".\nMark Reviewed.\nRPP-PLAN-052 is a duplicate and should be made Inactive.\"",
+      "statusComment": "\"KEEP this as the canonical case for \"\"Pay Now disabled until plan is saved\"\".\nMark Reviewed.\nRPP-PLAN-052 is a duplicate and should be made Inactive.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-035",
+      "title": "Pay Now: button  available - Pay Full Amount available only when an End Date exists; ends the plan instantly",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded by final four-option Pay Now flow RPP-PLAN-070 onward.\"\"\nDo not automate old Pay Full Amount model.\"",
+      "statusComment": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded by final four-option Pay Now flow RPP-PLAN-070 onward.\"\"\nDo not automate old Pay Full Amount model.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-036",
+      "title": "Pay Now Full Amount balance = plan pending (end date) else patient net balance",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"NO TEST-CASE CONTENT CHANGE.\nUse the requirement already written in this case: Total Balance = pending plan balance when End Date exists; otherwise patient net balance.\nRemove/ignore the conflicting Status Comment that says patient net balance should not be used.\nMark Reviewed; if build differs, log a defect.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-037",
+      "title": "Pay Now - Pay Next Installment collects one installment, creates a receipt, skips the next scheduled charge",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"Description: replace with:\n\"\"Pay Now - Pay Next Installment collects exactly one installment, creates/shows a receipt, and prevents the same installment from being charged again by the scheduled run.\"\"\n\nExpected Output: replace with:\n\"\"Exactly one next installment is collected for the installment amount, a payment-plan receipt is created and shown after success, the installment is updated to Success/Paid, and the scheduler does not charge the same installment again.\"\"\n\nVerification Step: replace with:\n\"\"1. Open the saved active plan and record the next installment number, due date and amount. 2. Click Pay Now > Pay Next Installment. 3. Assert the amount defaults to the installment amount and is not editable. 4. Complete payment. 5. Assert only that installment becomes Success/Paid and the receipt is shown/available. 6. Let the scheduled run reach the recorded due date and assert the same installment is not charged again.\"\"\nMark Reviewed after update.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-038",
+      "title": "Pay Now (full or next installment) sends a notification to the patient",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Need to send the notification if the payment is either successfull or failure"
+    },
+    {
+      "testCaseId": "RPP-PLAN-039",
+      "title": "Detail-view Print outputs Patient Info, Plan Details, Due On, Installments, Payment Method",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Print view is pending"
+    },
+    {
+      "testCaseId": "RPP-PLAN-040",
+      "title": "Create-mode Print before save prompts to save and print",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-041",
+      "title": "Logs button is removed from the plan button bar",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-042",
+      "title": "List view: plans without an End Date show blank in the End Date column",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "End date of the payment plan is not mentioned in the HTML files. Needs to be verified in the payment plan list view and payment plan tracking window both."
+    },
+    {
+      "testCaseId": "RPP-PLAN-043",
+      "title": "Last Payment Date shown in the top summary section above the Installments",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-044",
+      "title": "Patient’s payments shown upfront in the detail section (no separate Payment Tracking button)",
+      "module": "Recurring Payment Plan",
+      "status": "clarification_required",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "Need to discuss",
+      "statusComment": "Need to discuss"
+    },
+    {
+      "testCaseId": "RPP-PLAN-045",
+      "title": "Opened from Patient Chart: Patient Info section hidden; info cards move above Installments",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-PLAN-046",
+      "title": "Opened from Plan-Level Tracking: Patient Info section is displayed",
+      "module": "Recurring Payment Plan",
+      "status": "clarification_required",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "Need to discuss",
+      "statusComment": "Need to discuss"
+    },
+    {
+      "testCaseId": "RPP-PLAN-047",
+      "title": "List filters: Plan Code, Status, Last Payment Status, Frequency",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "not required",
+      "statusComment": "not required"
+    },
+    {
+      "testCaseId": "RPP-PLAN-048",
+      "title": "Save Criteria and Reset on the plan list",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-PLAN-049",
+      "title": "Gateway heads-up: plan at a facility with no real-time CC service is informational (preview only)",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-PLAN-050",
+      "title": "Failed last charge shows a red alert with Update-card; card masked to last 4",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-PLAN-051",
+      "title": "Responsive: list becomes cards and detail grid reflows on iPad/Tablet",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-PLAN-052",
+      "title": "Pay Now will be grey out  until plan is saved(mode: create/update)",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Duplicate of RPP-PLAN-034 - Pay Now disabled until plan is saved.\"\"\nKeep RPP-PLAN-034 as the canonical automation case.\"",
+      "statusComment": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Duplicate of RPP-PLAN-034 - Pay Now disabled until plan is saved.\"\"\nKeep RPP-PLAN-034 as the canonical automation case.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-053",
+      "title": "Show the Please save the changes prompt when  plan in edit mode directly click on click on print",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-054",
+      "title": "Agreement client setting \"Yes & keep it mandatory\": the plan cannot go active until the patient agrees.\n- In client settings, set \"Show Agreement on Payment Plan\" = Yes & keep it mandatory.\n- Create and Save a patient payment plan.\n- When the Agreement window opens, first close it without agreeing; check the plan status.\n- Repeat, this time click \"Agree & Continue\".",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Agreement client setting (3 values); mandatory branch."
+    },
+    {
+      "testCaseId": "RPP-PLAN-055",
+      "title": "Agreement client setting \"Yes but not mandatory\": the plan can go active even if the patient does not agree.\n- Set \"Show Agreement on Payment Plan\" = Yes but not mandatory.\n- Save a new patient payment plan.\n- Close the Agreement window without agreeing.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Agreement client setting; non-mandatory branch. Added comment: updated the expected result as it works based on the client setting flag"
+    },
+    {
+      "testCaseId": "RPP-PLAN-056",
+      "title": "Agreement client setting \"No\": no Agreement button or window appears anywhere on the payment plan.\n- Set \"Show Agreement on Payment Plan\" = No.\n- Create and Save a patient payment plan.\n- Look for any Agreement button or window.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Agreement client setting; No branch. Added comment: Agreement will be shown in view mode as there is depended on flag(view mode). but if the set\"show agreement on payment plan\" is false then it will not shown while saving the payment plan"
+    },
+    {
+      "testCaseId": "RPP-PLAN-057",
+      "title": "The Agreement becomes read-only (cannot be edited) once the first transaction has run on the plan.\n- Open a plan that has already had at least one successful charge.\n- Open its Agreement.\n- Try to edit/re-generate the agreement terms.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Agreement not editable after first transaction.\"Test Case Type: change from Security to State-transition.\nNo other content change required.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-058",
+      "title": "If the plan terms are changed before the first transaction, the Agreement is regenerated with the updated terms.\n- On a saved plan that has NOT yet had any transaction, change a term (e.g. amount, frequency or end date).\n- Re-open the Agreement.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Agreement re-populates with updated terms pre-first-transaction."
+    },
+    {
+      "testCaseId": "RPP-PLAN-059",
+      "title": "Pay Now offers up to three choices depending on the plan: Next Installment, Overdue Amount, and Total Balance.\n- Open a saved plan and click Pay Now.\n- Review the available payment options.",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "Updated 3-option Pay Now model.\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded by RPP-PLAN-070 final four-option Pay Now list.\"\"\nDo not automate.\"",
+      "statusComment": "Updated 3-option Pay Now model.\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Superseded by RPP-PLAN-070 final four-option Pay Now list.\"\"\nDo not automate.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-060",
+      "title": "Pay Now → Next Installment: amount defaults to the installment amount, cannot be changed, and only one installment can be collected.\n- Click Pay Now and choose Next Installment.\n- Try to change the amount.\n- Try to pay more than one installment at once.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Next-installment Pay Now; single installment only."
+    },
+    {
+      "testCaseId": "RPP-PLAN-061",
+      "title": "Pay Now → Overdue Amount: the amount cannot exceed the plan's total overdue amount.\n- Click Pay Now and choose Overdue Amount.\n- Try to enter an amount larger than the total overdue.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Overdue-Amount Pay Now cap."
+    },
+    {
+      "testCaseId": "RPP-PLAN-062",
+      "title": "Pay Now → Total Balance: shows the total plan balance when an end date exists, otherwise the patient's net balance.\n- On a plan WITH an end date, click Pay Now → Total Balance and read the amount.\n- On a plan WITHOUT an end date, do the same.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Total-Balance Pay Now; end-date vs no-end-date."
+    },
+    {
+      "testCaseId": "RPP-PLAN-063",
+      "title": "The New 'Status' column is added in the installment section for each installment. It will show the successful, overdue, etc.  status.\nVerify that the correct status are displayed in while printing the payment plan.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-064",
+      "title": "A missed / failed / expired-card / without-gateway installment is marked \"Overdue\" in the installment table when the plan rolls forward.\n- Let a scheduled charge fail (declined card, expired card, or a without-gateway plan where nothing was collected).\n- Wait for the plan to move to the next installment.\n- Look at the missed installment's Payment column.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Overdue installment status flow."
+    },
+    {
+      "testCaseId": "RPP-PLAN-065",
+      "title": "An overdue installment flips to \"Paid\" once the patient pays it via Pay Now.\n- On a plan with an Overdue installment, click Pay Now → Overdue Amount and collect it.\n- Re-check the installment table.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Overdue → Paid via Pay Now."
+    },
+    {
+      "testCaseId": "RPP-PLAN-066",
+      "title": "Without Gateway → \"Yes\" on the receipt prompt creates a receipt on the scheduled date with mode \"credit card without gateway\".\n- On the payment plan window, tick the \"Without Gateway\" checkbox.\n- On the prompt \"Would you like to create the receipt for payment without gateway?\" click YES.\n- Check the scheduled date and the resulting receipt.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Without-gateway YES branch (complements RPP-PLAN-027/029)."
+    },
+    {
+      "testCaseId": "RPP-PLAN-067",
+      "title": "Ticking \"Without Gateway\" disables the saved-card field so no card can be selected.\n- Tick \"Without Gateway\".\n- Try to open/select from the saved-card dropdown.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "Without-gateway disables saved-card field.\"Description: replace \"\"Without Gateway\"\" with \"\"Cash Plan (Without Gateway)\"\".\nPre-Req/Test Data/Expected Output/Verification Step: use the same terminology wherever \"\"Without Gateway\"\" appears.\nFunctional expectation remains: selecting Cash Plan disables/greys the saved-card/payment-method control.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-068",
+      "title": "Verify the all the available payment methods, existing in the system for Pay now button.\n- Verify the generated receipts in the system and It should show in the Payments section of payment plan window.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-069",
+      "title": "Detail-view Print for a no-end-date plan prints the same 12 installments shown on screen, with the bottom note.\n- Open a plan with no end date (showing 12 installments + the note).\n- Use Print (detail view).",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "No-end-date print reflects on-screen 12 installments."
+    },
+    {
+      "testCaseId": "RPP-PLAN-070",
+      "title": "[New] Pay Now now offers FOUR options - Pay Overdue, Pay Next Installment, Pay Total Balance and Custom Payment - and this final list replaces the earlier three-option list.\n- Open a saved plan that has an overdue amount and upcoming installments.\n- Click Pay Now and read every option offered in the modal.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-071",
+      "title": "[New] Pay Now - Pay Overdue collects the total overdue up to today only, and cannot be pushed above that total.\n- Open a plan carrying more than one overdue schedule.\n- Choose Pay Overdue and check the offered amount against the sum of the overdue schedules.\n- Try to type a larger amount.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-072",
+      "title": "[New] Pay Now - Pay Total Balance equals the overdue amount plus every pending installment of the plan.\n- Open a plan that has both overdue schedules and pending future schedules.\n- Choose Pay Total Balance and compare the amount with overdue + pending.\n- Pay it in full and check the plan.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-073",
+      "title": "[New] Pay Now - Custom Payment lets the user type any amount of their choice in a free-entry amount field.\n- Open Pay Now and pick Custom Payment.\n- Check that the amount field is empty/editable and is not locked to an installment or overdue figure.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-074",
+      "title": "[New] Custom Payment smaller than the earliest unsettled schedule pays that schedule partially and the schedule STAYS Overdue because full payment was not received.\n- Open a plan whose earliest schedule is overdue.\n- Pay a custom amount smaller than that schedule's amount.\n- Check the schedule's paid amount and its status.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-075",
+      "title": "[New] Custom Payment is always applied starting from the beginning of the schedule sequence (earliest unsettled schedule first), never to a later schedule the user might expect.\n- Open a plan with several unsettled schedules.\n- Pay a custom amount that covers about two schedules.\n- Check which schedules absorbed the money and in what order.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-076",
+      "title": "[New] Custom Payment exactly equal to the total overdue clears all overdue schedules and leaves nothing spilling onto upcoming schedules (boundary).\n- Open a plan with a known overdue total.\n- Pay a custom amount exactly equal to that total.\n- Check that no future schedule shows any part payment.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "not required"
+    },
+    {
+      "testCaseId": "RPP-PLAN-077",
+      "title": "[New] Custom Payment rejects meaningless amounts - blank, zero, negative and non-numeric entries cannot be submitted.\n- Open Pay Now > Custom Payment.\n- Try to submit with the amount blank, then zero, then a negative value, then letters/symbols.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "there is a validation in the amount field that amount should be greater than 0"
+    },
+    {
+      "testCaseId": "RPP-PLAN-078",
+      "title": "[New] A schedule sitting at Partial flips to Overdue once its own scheduled payment day has passed without the rest of the money arriving.\n- Start from a future schedule that is marked Partial after a custom payment.\n- Let its scheduled date pass with no further payment.\n- Re-check its status on the plan.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-079",
+      "title": "[New] A Partial schedule stays Partial as long as its scheduled payment day has not yet arrived (it must not be shown as overdue early).\n- Create a Partial future schedule via a custom payment.\n- Before its scheduled date arrives, re-open the plan.\n- Confirm the status is still Partial and the amount is not counted as overdue.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-080",
+      "title": "[New] Installments section status vocabulary - a schedule whose date has passed with no payment received is shown as Outstanding.\n- Let a scheduled date pass with no money collected.\n- Open the plan's Installments section and read the status column for that row.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"Description: replace \"\"Outstanding\"\" with \"\"Overdue\"\".\nExpected Output: use \"\"A past-due installment with no payment is shown as Overdue.\"\"\nVerification Step: assert the status value is Overdue.\nReason: keep installment status vocabulary consistent with the final Pay Overdue flow and RPP-PLAN-064/065.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-081",
+      "title": "[New] Installments section status vocabulary - a schedule whose payment has been fully received is shown as Success.\n- Let a scheduled charge run successfully (or collect it via Pay Now).\n- Read the status column for that installment row.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-082",
+      "title": "[New] Installments section status vocabulary - a schedule for which only part of the money has been received is shown as Partial.\n- Collect less than the full scheduled amount against one future schedule.\n- Read the status column and the amounts for that row.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-083",
+      "title": "[New] After a Pay Now payment succeeds the receipt is shown to the user straight away (post-payment receipt view).\n- Make a successful payment from the Pay Now modal.\n- Check that the receipt view appears without the user having to hunt for it, and that it matches the payment.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-084",
+      "title": "[New] A cash / Pay Now receipt created from a payment plan cannot be edited (final BA decision - edits are not allowed, only deletion).\n- Open a cash receipt created from Pay Now on a payment plan.\n- Try to change its amount or any other field.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-085",
+      "title": "[New] Deleting a cash receipt that had settled ONE schedule sends that schedule back to Pending when its scheduled date has not yet passed.\n- Pay one future schedule in advance with a cash receipt.\n- Delete that receipt before the schedule's date arrives.\n- Check the schedule's status and the plan balance.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-086",
+      "title": "[New] Deleting a cash receipt whose settled schedule's date has ALREADY passed sends that schedule to Overdue instead of Pending.\n- Pay a schedule with a cash receipt and let its scheduled date pass.\n- Delete the receipt.\n- Check that the schedule comes back as Overdue and is counted in the overdue total.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-087",
+      "title": "[New] Deleting one cash receipt that had settled SEVERAL schedules reverses every one of them, each to Pending or Overdue depending on its own date.\n- Make a large advance cash payment that settles several schedules, some past-dated and some future-dated.\n- Delete that single receipt.\n- Check each affected schedule separately.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-088",
+      "title": "[New] Deleting an EARLIER cash receipt while a LATER receipt also exists only reverses the earlier receipt's own schedules - the later receipt and its schedules stay intact.\n- Create a receipt for one schedule, then a second receipt for a following schedule.\n- Delete the first (earlier) receipt.\n- Check both the reversed schedule and the schedule settled by the later receipt.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-089",
+      "title": "[New] A plan is completed once the TOTAL payment has been received, and the plan status must automatically become Inactive.\n- Take a plan with an end date and collect the whole remaining balance.\n- Check the plan status right after the last money is received.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-090",
+      "title": "[New] A plan is also completed when its END DATE has passed, and the plan status must automatically become Inactive at that point.\n- Take an active plan whose end date is about to pass.\n- Let the end date pass.\n- Check the plan status.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-091",
+      "title": "[New] Once ANY payment on the plan has run successfully the user can no longer change the payment method (this is about the payment method only - the term lock is covered separately).\n- Compare a plan with no successful payment yet against a plan that has had one.\n- Try to change the payment method on each.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-092",
+      "title": "[New] Payment deduction keeps running throughout the whole day and is not attempted during night hours - a due installment can be collected at any time of day, not only at one fixed moment.\n- Make a plan's installment due and keep it collectable at different times of the day.\n- Observe when the deduction attempt happens.\n- Confirm no attempt occurs during the configured night window.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-093",
+      "title": "[New] The Installments section displays the total payment plan balance and the paid amount, and for a Never ends plan a note is shown at the bottom of the section alongside the 12-installment preview.\n- Open a plan with an end date and read the totals shown in the Installments section.\n- Then open a plan with Never ends selected and check the totals plus the bottom note.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-094",
+      "title": "[New] The Agreement window is shown only AFTER the payment plan is saved, never while the plan is still being filled in (client setting \"Show Agreement on Payment Plan\" = Yes & Keep it mandatory).",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-095",
+      "title": "[New] When an existing payment plan is updated, the previous agreement is cleared and a fresh agreement carrying the updated terms is shown after the save.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-096",
+      "title": "[New] If the newly generated agreement is skipped (window closed), the user can reopen it later from the Agreement button and it shows the NEW terms.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-097",
+      "title": "[New] When the agreement is mandatory and the user skips it on an UPDATED plan, the plan is saved but flipped to inactive.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-098",
+      "title": "[New] When the agreement is \"Yes but not mandatory\" and the user skips the regenerated agreement, the plan stays active but the old agreement is still gone (cleared on update).",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-099",
+      "title": "[New] \"Agree & Continue\" is the activation step - clicking it activates the payment plan and stamps the agreement against the patient.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-100",
+      "title": "[New] Clicking \"Agree & Continue\" sends the agreement email to the patient when the Agreement event is enabled in the notification preference.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-101",
+      "title": "[New] No agreement e-mail is sent on \"Agree & Continue\" when the Agreement event is NOT enabled in the notification preference.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-102",
+      "title": "[New] The agreement is shown as a readable template preview on the patient payment plan setup screen, with the patient's plan terms merged into the template text.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-103",
+      "title": "[New] The clinic can capture the patient's signature on the agreement preview and the signed agreement is stored against the patient.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-104",
+      "title": "[New] Verify the \"Save and Close\" action on the agreement window - the agreement is stored for later without activating through Agree & Continue.",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Do not automate - provided source only says 'check Save and Close' and does not define the expected state/result.\"\"\nKeep it out of automation until the product has a defined expected result.\"",
+      "statusComment": "\"Active/Inactive: change to Inactive.\nStatus Comment: \"\"Do not automate - provided source only says 'check Save and Close' and does not define the expected state/result.\"\"\nKeep it out of automation until the product has a defined expected result.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-105",
+      "title": "[New] After the first transaction has run, editing the plan does NOT clear or regenerate the agreement - the agreed document stays locked and intact.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-106",
+      "title": "[New] Verify the content of the agreement e-mail - it must carry the agreement document, and the body text (if any) must match the configured template.",
+      "module": "Recurring Payment Plan",
+      "status": "clarification_required",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "Clarification Required - the source thread asks whether the agreement e-mail should carry only the document or also a text body, and the body wording was never confirmed.",
+      "statusComment": "Clarification Required - the source thread asks whether the agreement e-mail should carry only the document or also a text body, and the body wording was never confirmed."
+    },
+    {
+      "testCaseId": "RPP-PLAN-107",
+      "title": "[New] The Reconciliation Preference selection is visible on the patient payment plan and auto-populates to \"No\" (do not reconcile) on a new plan.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-108",
+      "title": "[New] The Reconciliation Preference selection can be changed at any time, including on a running plan that has already had transactions, and the change persists.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-109",
+      "title": "[New] Payment plan screens and setups are available to a client WITHOUT OpenEdge configured - only the Payment Method area is greyed out.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-110",
+      "title": "[New] A client without OpenEdge can create, save and activate a complete payment plan end-to-end even though no card can be attached.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-111",
+      "title": "[New] A Without Gateway plan does not create any transaction or receipt automatically when the scheduled installment date arrives.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-112",
+      "title": "[New] Modified interdependent disabling check - a cash / Without Gateway plan and a saved-card plan for the same patient do not wrongly disable each other's fields.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-113",
+      "title": "[New] No duplicate-card check is performed at all - adding a card whose details already exist for the patient raises no prompt and simply adds the card.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-114",
+      "title": "[New] Duplicate cards appear regardless of whether the \"use this card only for this payment plan\" checkbox is ticked.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-115",
+      "title": "[New] Re-entering the details of an existing GENERAL card as a payment-plan-only card is allowed - the withdrawn \"This card is used elsewhere\" prompt must not appear.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-116",
+      "title": "[New] Two payment plans can run on separately entered copies of the same card, each charging independently, since no cross-plan card check exists.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-117",
+      "title": "[New] Surcharge is deferred to a separate ER - no surcharge field or column is visible anywhere on the payment plan window or the installments section.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-118",
+      "title": "[New] No surcharge field or amount is shown on the Pay Now modal or on the receipt generated from a payment plan payment.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-119",
+      "title": "[New] Regression - with surcharge hidden, all plan amounts, balances and totals are calculated on the plain installment amount only.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-120",
+      "title": "[New] The payment plan edit screen uses the revised 40-60 left/right split (the earlier 60-40 layout is no longer used).",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"Description: replace with:\n\"\"The payment plan edit screen uses the revised layout with the plan-entry pane on the left (~40%) and Installments/Payments on the right (~60%).\"\"\n\nExpected Output: replace with:\n\"\"At supported desktop resolution, the left plan-entry pane is approximately 40% and the right Installments/Payments pane approximately 60%, with no overlap or clipping.\"\"\n\nVerification Step: replace with:\n\"\"1. Open a saved plan at supported desktop resolution. 2. Verify left pane is approximately 40% and right pane approximately 60%. 3. Assert labels/controls do not overlap or clip. 4. Assert Installments and Payments remain fully usable. 5. Reopen and confirm layout is stable.\"\"\nRemove any assertion about the historical old ratio.\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-121",
+      "title": "[New] The Adhoc Amount field has a white background so it does not look disabled, and it is genuinely editable.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": "\"Description: replace with:\n\"\"Pay Now > Custom/Adhoc Amount field has an enabled white background and accepts a valid positive amount.\"\"\n\nPre-Req Data: replace with:\n\"\"Pat1 = patient with a saved active payment plan; Pay Now is enabled; Val1 = valid positive custom payment amount.\"\"\n\nTest Data: replace with:\n\"\"Open Pay Now > Custom Payment and enter Val1.\"\"\n\nExpected Output: replace with:\n\"\"The Custom/Adhoc Amount input is visibly enabled (white), accepts Val1, and uses it for the current Pay Now transaction. It is not a persisted payment-plan setup field.\"\"\n\nVerification Step: replace with:\n\"\"1. Open saved plan and click Pay Now. 2. Choose Custom Payment. 3. Assert amount field is enabled and white. 4. Enter Val1 and assert it is accepted. 5. Complete/cancel the transaction as required. 6. Reopen Pay Now and assert the field is a fresh transaction input, not a retained plan attribute.\"\"\n\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-122",
+      "title": "[New] The stray time-field icon inside the app parameter placeholder for payment plan settings is removed - the placeholder shows clean text only.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-123",
+      "title": "[New] For payment plan settings only the system parameter applies - the user parameter section is hidden and cannot override the system value.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLAN-124",
+      "title": "Pay Now Button should be \"disable\" when all the installment payment are settled",
+      "module": "Recurring Payment Plan",
+      "status": "skipped",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "reason": "\"Description: replace with:\n\"\"Pay Now is disabled after the plan is fully settled and the completed plan becomes Inactive.\"\"\n\nTest Case Type: change to State-transition.\n\nPre-Req Data: replace with:\n\"\"Pat1 = patient; Plan1 = active finite payment plan with at least one unpaid installment.\"\"\n\nTest Data: replace with:\n\"\"Example: $100 monthly x 3 installments; collect all 3 so remaining plan balance becomes $0.\"\"\n\nExpected Output: replace with:\n\"\"After the final required payment, Total Payment Plan Balance = $0.00, Paid Amount equals the plan total, plan becomes Inactive/completed, and Pay Now is disabled.\"\"\n\nVerification Step: replace with:\n\"\"1. Confirm Plan1 is Active with an unpaid installment and Pay Now enabled. 2. Collect all remaining installments. 3. Refresh/reopen. 4. Assert Total Plan Balance = $0 and Paid Amount = plan total. 5. Assert plan is Inactive/completed. 6. Assert Pay Now is disabled.\"\"\n\"",
+      "statusComment": "\"Description: replace with:\n\"\"Pay Now is disabled after the plan is fully settled and the completed plan becomes Inactive.\"\"\n\nTest Case Type: change to State-transition.\n\nPre-Req Data: replace with:\n\"\"Pat1 = patient; Plan1 = active finite payment plan with at least one unpaid installment.\"\"\n\nTest Data: replace with:\n\"\"Example: $100 monthly x 3 installments; collect all 3 so remaining plan balance becomes $0.\"\"\n\nExpected Output: replace with:\n\"\"After the final required payment, Total Payment Plan Balance = $0.00, Paid Amount equals the plan total, plan becomes Inactive/completed, and Pay Now is disabled.\"\"\n\nVerification Step: replace with:\n\"\"1. Confirm Plan1 is Active with an unpaid installment and Pay Now enabled. 2. Collect all remaining installments. 3. Refresh/reopen. 4. Assert Total Plan Balance = $0 and Paid Amount = plan total. 5. Assert plan is Inactive/completed. 6. Assert Pay Now is disabled.\"\"\n\""
+    },
+    {
+      "testCaseId": "RPP-PLAN-125",
+      "title": "Custom Payment greater than total overdue applies the excess to upcoming installments in schedule order; a partly covered future installment becomes Partial.",
+      "module": "Recurring Payment Plan",
+      "status": "planned",
+      "specFile": "tests/generated/recurring-payment-plan.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-001",
+      "title": "Master-detail layout: plan-code list (left) + editable template form (right)",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-002",
+      "title": "Plan Code: alphanumeric text, max 7 characters, auto-converts to CAPITAL",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-003",
+      "title": "A saved plan code populates in the payment-plan screen Plan Code dropdown",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-004",
+      "title": "Amount field accepts only numeric input up to 7 digits",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-005",
+      "title": "Note field enforces a 200-character maximum",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-006",
+      "title": "Start Date mandatory + defaults to current date; End Date optional",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-007",
+      "title": "Due On (Start/End/Term) mirrors Event Scheduler Recurring; no Yearly/Time/Occurrence",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-008",
+      "title": "Every N accepts up to a 2-digit number for Days/Weekly/Monthly",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-009",
+      "title": "Daily frequency selects all weekdays and marks them Blue",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": "\"Description: replace with:\n\"\"Daily frequency does not show a weekday selector in Payment Plan Template Setup.\"\"\n\nExpected Output: replace with:\n\"\"When Daily is selected, no weekday selection controls are displayed. Weekday selection is applicable only to Weekly.\"\"\n\nVerification Step: replace with:\n\"\"1. Open Payment Plan Template Setup and create/edit a template. 2. Select Daily. 3. Assert no weekday selector/day buttons are displayed. 4. Switch to Weekly and assert weekday selection controls are displayed. 5. Switch back to Daily and assert they disappear.\"\"\nMark Reviewed after update.\""
+    },
+    {
+      "testCaseId": "RPP-SET-010",
+      "title": "No CC Surcharge field at setup level",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": "\"Expected Output: replace with:\n\"\"No CC Surcharge field is displayed anywhere in Payment Plan Template Setup.\"\"\n\nVerification Step: replace with:\n\"\"1. Open Payment Plan Template Setup in create mode. 2. Inspect all sections and assert no CC Surcharge field/label exists. 3. Open an existing template and assert surcharge remains absent. 4. Save/reopen and confirm no surcharge value/column appears.\"\"\nRemove wording that surcharge is shown at patient-plan level because surcharge is deferred to a separate ER.\""
+    },
+    {
+      "testCaseId": "RPP-SET-011",
+      "title": "No Notification/Reminder preferences at setup level",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-012",
+      "title": "Verify the last day of month option for monthly plan.",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-013",
+      "title": "Duplicate plan code name is not allowed",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-014",
+      "title": "Left list search by Plan Code and Description",
+      "module": "Payment Plan Setup",
+      "status": "blocked",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "reason": "Verification steps are missing from source test case",
+      "statusComment": "should allow to search either by plan code or description"
+    },
+    {
+      "testCaseId": "RPP-SET-015",
+      "title": "Left list search by Plan Code and Description",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": "should allow to search either by plan code or description"
+    },
+    {
+      "testCaseId": "RPP-SET-016",
+      "title": "Required-field validation (Plan Code, Amount)",
+      "module": "Payment Plan Setup",
+      "status": "blocked",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "reason": "Verification steps are missing from source test case",
+      "statusComment": "description field is required"
+    },
+    {
+      "testCaseId": "RPP-SET-017",
+      "title": "Required-field validation (Plan Code, Amount)",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": "\"Description: replace with:\n\"\"Required-field validation (Plan Code, Description, Amount).\"\"\n\nTest Data: replace with:\n\"\"Save with Plan Code blank; then Description blank; then Amount blank.\"\"\n\nExpected Output: replace with:\n\"\"Save is blocked while Plan Code, Description or Amount is blank; the missing required field is identified. Save succeeds after all required fields contain valid values.\"\"\n\nVerification Step: replace with:\n\"\"1. Create new template. 2. Leave Plan Code blank, fill Description/Amount and Save; assert blocked. 3. Fill Plan Code, clear Description and Save; assert blocked. 4. Fill Description, clear Amount and Save; assert blocked. 5. Fill all three valid values and Save; assert success.\"\"\n\""
+    },
+    {
+      "testCaseId": "RPP-SET-018",
+      "title": "Add a new template; Created By / Created Date stamped",
+      "module": "Payment Plan Setup",
+      "status": "skipped",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-SET-019",
+      "title": "Cancel reverts unsaved template edits",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-020",
+      "title": "F4 from the Plan Code dropdown opens the plan setup (select plan code)",
+      "module": "Payment Plan Setup",
+      "status": "blocked",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "reason": "Verification steps are missing from source test case",
+      "statusComment": "not required"
+    },
+    {
+      "testCaseId": "RPP-SET-021",
+      "title": "F4 from the Plan Code dropdown opens the plan setup (select plan code)",
+      "module": "Payment Plan Setup",
+      "status": "skipped",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "reason": "not required",
+      "statusComment": "not required"
+    },
+    {
+      "testCaseId": "RPP-SET-022",
+      "title": "Setup enforces grants (View/Create/Update/Delete)",
+      "module": "Payment Plan Setup",
+      "status": "skipped",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "reason": "need to check",
+      "statusComment": "need to check"
+    },
+    {
+      "testCaseId": "RPP-SET-023",
+      "title": "Need to show the pagination in the left side list in the recurring payment plan setup screen",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-024",
+      "title": "Updating the already used plan setup should not impact on the existing payment plan",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-025",
+      "title": "Setup layout: Amount and Note are shown in the upper pane, with Due On (Start/End/Term) below.\n- Open the Payment Plan Setup window.\n- Confirm the arrangement of Amount, Note and the Due On section.",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": "Setup upper-pane layout."
+    },
+    {
+      "testCaseId": "RPP-SET-026",
+      "title": "Setup never offers a credit-card selector or CC surcharge — the card and surcharge live at the patient plan level.\n- Open the Payment Plan Setup window.\n- Look for any card selection or CC surcharge field.",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": "Card + surcharge only at patient level (complements RPP-SET-010).\"Description: replace with:\n\"\"Payment Plan Template Setup does not provide a credit-card selector or surcharge field.\"\"\n\nExpected Output: replace with:\n\"\"No saved-card/credit-card selector and no CC Surcharge field are displayed in Payment Plan Template Setup.\"\"\n\nVerification Step: replace with:\n\"\"1. Open a new template and inspect the full form. 2. Assert no saved-card/card selector/Add Card control exists. 3. Assert no CC Surcharge field/column exists. 4. Open an existing template and confirm both remain absent.\"\"\nRemove the statement that surcharge appears at patient level.\""
+    },
+    {
+      "testCaseId": "RPP-SET-027",
+      "title": "The start date and End date should be removed from the recurring payment plan setup window.",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": "As the from date is today's date. this date range is not required."
+    },
+    {
+      "testCaseId": "RPP-SET-028",
+      "title": "[New] Surcharge is deferred to a separate ER: the surcharge field exists in the build but stays hidden in the plan setup form",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-029",
+      "title": "[New] No surcharge column is offered in the setup plan-code list, column chooser, print or export",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-030",
+      "title": "[New] A template saved while surcharge is hidden stores no surcharge value and reopens cleanly",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-031",
+      "title": "[New] The user parameter section is hidden for payment plan configuration - only the system parameter section is shown",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-032",
+      "title": "[New] The system parameter value drives payment plan behaviour and no per-user value can override it",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-033",
+      "title": "[New] Changing the system parameter takes effect for all users after re-login, with no per-user exception",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-034",
+      "title": "[New] The stray time-field icon is removed from the app parameter time placeholder",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-035",
+      "title": "[New] The time parameter still accepts, validates and saves a time value after the placeholder icon change",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-036",
+      "title": "[New] Client setting 'Show Agreement on Payment Plan' exists and offers exactly three values",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-037",
+      "title": "[New] The 'Show Agreement on Payment Plan' selection is saved and persists across reload and re-login",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-038",
+      "title": "[New] 'Show Agreement on Payment Plan' is a fixed dropdown - it cannot be left blank or free-typed",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-039",
+      "title": "[New] A fresh database already carries the default letter templates for every payment-plan reminder and notification event",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-040",
+      "title": "[New] Each payment-plan event's default letter template is selectable from the notification/reminder setup dropdown",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-041",
+      "title": "[New] The default payment-plan templates are applied to every database, not just one",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-042",
+      "title": "[New] Payment plan screens and setups open for a client that does not have OpenEdge configured",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-043",
+      "title": "[New] Plan templates can be created, edited and saved on a non-OpenEdge client exactly as on a configured client",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-SET-044",
+      "title": "[New] FLOW - a non-OpenEdge client sets up a template and uses it on a patient plan, with only the payment method restricted",
+      "module": "Payment Plan Setup",
+      "status": "planned",
+      "specFile": "tests/generated/payment-plan-setup.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-001",
+      "title": "Worklist lists every plan across all patients, one row per plan",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-002",
+      "title": "Card dashlet view removed; flat worklist only",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-003",
+      "title": "Amount-type filter and columns removed: Total plan Amt, Remaining, Installment Amt",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-004",
+      "title": "DOB, Phone and Email shown in the Patient Name tooltip",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": "\"NO TEST-CASE CONTENT CHANGE.\nKeep this requirement: DOB, Phone and Email appear in the Patient Name tooltip.\nMark Reviewed. If the current build lacks the tooltip, log a defect.\nAlso add/use RPP-PLT-043 for the separate patient-name click navigation behavior.\""
+    },
+    {
+      "testCaseId": "RPP-PLT-005",
+      "title": "Recent Activity column removed",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-006",
+      "title": "Filters: each date type and amount type separate; More section for low-priority filters",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-007",
+      "title": "Created By filter available in the More filters section",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": "There is no created by filter in filters"
+    },
+    {
+      "testCaseId": "RPP-PLT-008",
+      "title": "Clicking the patient name opens the Patient Master screen modal",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-009",
+      "title": "PP No link opens the plan window (source = tracking, patient info shown)",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": "\"Expected Output: replace with:\n\"\"Clicking the PP No opens the corresponding patient payment-plan detail from the tracking context, and the Patient Information section is displayed.\"\"\n\nVerification Step: replace with:\n\"\"1. Retrieve a known plan in Plan-Level Tracking. 2. Click its PP No link. 3. Assert the opened detail belongs to the same PP No/patient. 4. Assert Patient Information is displayed because the plan was opened from tracking. 5. Close and confirm the tracking filter/result state is preserved as designed.\"\"\nMark Reviewed after update.\""
+    },
+    {
+      "testCaseId": "RPP-PLT-010",
+      "title": "Row payments drawer shows that plan’s associated payments",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-011",
+      "title": "Button bar: New Plan / Delete / Print / Export; Setup button removed (F4 from Plan Code filter)",
+      "module": "Plan Level Tracking",
+      "status": "skipped",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "reason": "\"Superseded by final button-bar/selection rules.\"\nFinal tracking actions are covered by PLT-021 and PLT-038/039/040 (no selection/Delete; Print/Export only).",
+      "statusComment": "\"Superseded by final button-bar/selection rules.\"\nFinal tracking actions are covered by PLT-021 and PLT-038/039/040 (no selection/Delete; Print/Export only)."
+    },
+    {
+      "testCaseId": "RPP-PLT-012",
+      "title": "Inactive plans red; grand-total row pinned",
+      "module": "Plan Level Tracking",
+      "status": "skipped",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-PLT-013",
+      "title": "Inactive plans red; grand-total row pinned",
+      "module": "Plan Level Tracking",
+      "status": "blocked",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "reason": "Verification steps are missing from source test case",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-PLT-014",
+      "title": "Empty-state on a no-match filter combination",
+      "module": "Plan Level Tracking",
+      "status": "skipped",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-PLT-015",
+      "title": "Responsive worklist on iPad/Tablet",
+      "module": "Plan Level Tracking",
+      "status": "skipped",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "reason": "Need to discuss",
+      "statusComment": "Need to discuss"
+    },
+    {
+      "testCaseId": "RPP-PLT-016",
+      "title": "Grants (View/Create/Update/Delete)",
+      "module": "Plan Level Tracking",
+      "status": "skipped",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "reason": "not required",
+      "statusComment": "not required"
+    },
+    {
+      "testCaseId": "RPP-PLT-017",
+      "title": "FLOW - triage a failing plan from the worklist",
+      "module": "Plan Level Tracking",
+      "status": "skipped",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "reason": "not required",
+      "statusComment": "not required"
+    },
+    {
+      "testCaseId": "RPP-PLT-018",
+      "title": "A new \"Overdue Amount\" column shows each plan's total overdue transaction amount.\n- Open the plan-level tracking worklist.\n- Find the Overdue Amount column and compare it with a plan that has failed/overdue charges.",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": "New Overdue Amount column."
+    },
+    {
+      "testCaseId": "RPP-PLT-019",
+      "title": "The Overdue Amount can be filtered by a numeric From & To range, and its quick option is capped at the plan's total overdue.\n- Open the filter pane.\n- Enter an Overdue Amount From and To range and apply.\n- Use the \"Overdue Amount\" quick option.",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": "Overdue Amount numeric filter + capped option."
+    },
+    {
+      "testCaseId": "RPP-PLT-020",
+      "title": "Verify the Overdue amount logic in the payment plan tracking window when the payment occurring day is today but the payment is not completed.",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": "Boundary value check"
+    },
+    {
+      "testCaseId": "RPP-PLT-021",
+      "title": "The selection checkbox and the Delete option are removed from the plan-level tracking window.\n- Open the plan-level tracking worklist.\n- Look for a per-row selection checkbox and a Delete action.",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": "Updated: checkbox + Delete removed from tracking (supersedes older RPP-PLT-011/012 wording)."
+    },
+    {
+      "testCaseId": "RPP-PLT-022",
+      "title": "Verify the different export formats for payment plan tracking window.",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-023",
+      "title": "Verify the total amounts for the Amount columns.",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-024",
+      "title": "[New] Overdue Amount From and To set to the same value returns only plans whose overdue exactly equals it",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-025",
+      "title": "[New] Overdue Amount filter with only the To value filled behaves as an upper limit",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-026",
+      "title": "[New] Overdue Amount filter with only the From value filled behaves as a lower limit",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-027",
+      "title": "[New] Overdue Amount From greater than To is rejected or returns an empty result without error",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-028",
+      "title": "[New] Plans with zero overdue are excluded by a positive From value and included when the range starts at zero",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-029",
+      "title": "[New] The Overdue Amount filter accepts only numeric input and rejects text and negative values",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-030",
+      "title": "[New] The Pay Now 'Overdue Amount' option is capped at the plan's total overdue and cannot be exceeded",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-031",
+      "title": "[New] The Overdue Amount cap and column refresh after an overdue payment is collected",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-032",
+      "title": "[New] The Overdue Amount column is included in the grid totals and in the export with matching figures",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-033",
+      "title": "[New] Surcharge-related columns are removed from the plan-level tracking worklist and its column chooser",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-034",
+      "title": "[New] Exported and printed plan-level tracking output contains no surcharge column",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-035",
+      "title": "[New] A plan whose total payment has been received shows as Inactive in the worklist",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-036",
+      "title": "[New] A plan whose end date has passed shows as Inactive in the worklist",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-037",
+      "title": "[New] A completed plan shown as Inactive also picks up the inactive red row styling",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-038",
+      "title": "[New] No bulk-select header checkbox exists in the plan-level tracking grid",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-039",
+      "title": "[New] The Delete action is absent from the plan-level tracking button bar in every state",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-040",
+      "title": "[New] No Delete option appears in any row-level or right-click context menu on the tracking grid",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-041",
+      "title": "[New] Keyboard select-all does not select rows on the plan-level tracking grid",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-PLT-042",
+      "title": "[New] Reconciliation Preference of each plan is shown and filterable at the plan-level tracking worklist",
+      "module": "Plan Level Tracking",
+      "status": "clarification_required",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "reason": "Clarification Required - the source e-mail thread defines Reconciliation Preference at the payment plan level only and never confirms whether the plan-level tracking worklist shows or filters this field. BA to confirm whether the column and filter are in scope for this screen.",
+      "statusComment": "Clarification Required - the source e-mail thread defines Reconciliation Preference at the payment plan level only and never confirms whether the plan-level tracking worklist shows or filters this field. BA to confirm whether the column and filter are in scope for this screen."
+    },
+    {
+      "testCaseId": "RPP-PLT-043",
+      "title": "[Add] Clicking Patient Name in Plan-Level Tracking opens the Patient Demographics/Patient Master modal for that patient.",
+      "module": "Plan Level Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/plan-level-tracking.spec.ts",
+      "statusComment": "\"ADDED THIS CASE:\nDescription: \"\"Clicking Patient Name in Plan-Level Tracking opens the Patient Demographics/Patient Master modal for that patient.\"\"\nType: Navigation\nLevel: Detail\nPre-Req: Pat1 has at least one plan visible in tracking.\nTest Data: Retrieve Pat1 and click Patient Name.\nExpected Output: The Patient Demographics/Patient Master modal opens for Pat1.\nVerification: 1. Retrieve Pat1 plan row. 2. Click Patient Name. 3. Assert patient modal opens. 4. Assert patient identity/chart number matches Pat1. 5. Close modal and assert tracking context remains available.\""
+    },
+    {
+      "testCaseId": "RPP-TXN-001",
+      "title": "Existing Payment Transaction Tracking screen lists PP + general transactions",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-002",
+      "title": "Added PP columns: Plan Code, Applied, Unapplied, Surcharge, Total, Scheduled, Card No/Brand, Installment No, Txn Time in Txn Date",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-003",
+      "title": "Added filters: Plan Code, Transaction Status (successful/inqueue/failed), separate date & amount filters, Unapplied-only checkbox",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-004",
+      "title": "Status colouring: Successful green / Failed red / In queue amber-grey",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-005",
+      "title": "Applied vs Unapplied split",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-006",
+      "title": "Refund is available only for Successful transactions (verify for recurring)",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-007",
+      "title": "Verify transaction request content and Status history",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-008",
+      "title": "Existing credit-card transactions from other screens still appear (regression)",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-009",
+      "title": "Without-gateway receipt shows payment mode \"credit card without gateway\"",
+      "module": "Transaction Tracking",
+      "status": "skipped",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-TXN-010",
+      "title": "Open Credit receipt created per successful plan charge",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-011",
+      "title": "Future-scheduled (In queue) charges excluded from the collected list",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-012",
+      "title": "Retried charge shows both the failed attempt and the successful retry",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-013",
+      "title": "Grand-total row sums the monetary columns for visible rows",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": "There is not summary of grand total"
+    },
+    {
+      "testCaseId": "RPP-TXN-014",
+      "title": "Empty-state on a no-match filter",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-016",
+      "title": "Grants (View/Delete)",
+      "module": "Transaction Tracking",
+      "status": "skipped",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "reason": "not required : there is no delete grants currently exists",
+      "statusComment": "not required : there is no delete grants currently exists"
+    },
+    {
+      "testCaseId": "RPP-TXN-017",
+      "title": "The new \"In queue\" status is mapped to the existing \"In progress\" status.\n- Filter Transaction Status = In queue.\n- Compare with records previously shown as In progress.",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": "In queue ↔ In progress mapping."
+    },
+    {
+      "testCaseId": "RPP-TXN-018",
+      "title": "For a Pay Now transaction, the Installment No shows as the last installment number plus one.\n- Collect a payment via Pay Now on a plan.\n- Find the resulting row in Transaction Tracking and read its Installment No.",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": "Pay now will not be available in the Payment trancking window."
+    },
+    {
+      "testCaseId": "RPP-TXN-019",
+      "title": "The Unapplied-only filter shows both plan credits and other open credits, whether partially applied or fully unapplied.\n- Apply the \"Unapplied amount only\" filter.\n- Include a partially applied credit and a fully unapplied credit.",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": "Unapplied filter shows both credit kinds."
+    },
+    {
+      "testCaseId": "RPP-TXN-020",
+      "title": "Refunds appear only in Transaction Tracking, never on the payment-plan (plan) level.\n- Refund a successful plan transaction from Transaction Tracking.\n- Open the corresponding payment plan window and look for any refund entry.",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": "No refund entry on plan level."
+    },
+    {
+      "testCaseId": "RPP-TXN-021",
+      "title": "Total Amount = Installment Amount + Surcharge, and the Surcharge column shows the CC surcharge per transaction.\n- Find a plan transaction that carried a CC surcharge.\n- Compare the Surcharge column and the Total Amount column against the installment amount.",
+      "module": "Transaction Tracking",
+      "status": "skipped",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "reason": "Total = installment + surcharge; surcharge column.",
+      "statusComment": "Total = installment + surcharge; surcharge column."
+    },
+    {
+      "testCaseId": "RPP-TXN-022",
+      "title": "Verify that only Credit card transactions will be listed in this screen. Any other payment mode which was used for recurring payment plan payment.",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-023",
+      "title": "[New] Opening Payment Transaction Tracking from inside a payment plan shows a reduced column set (the plan-context columns are hidden)",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-024",
+      "title": "[New] Opening Payment Transaction Tracking standalone (from the menu) still shows the complete column set",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-025",
+      "title": "[New] Hidden columns in the plan context do not change the data, filters or totals that are returned",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-026",
+      "title": "[New] Installment numbers are shown in a sequential order in the Payment Transaction Tracking screen",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-027",
+      "title": "[New] A failed attempt and its retry share the same installment number, so the sequence is not broken",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-028",
+      "title": "[New] Several consecutive Pay Now payments each take the next installment number (last + 1 each time)",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-029",
+      "title": "[New] Pay Now on a plan that has no installment recorded yet gets the first installment number",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-030",
+      "title": "[New] A Pay Now transaction keeps its place in the sequential installment ordering of the plan",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-031",
+      "title": "[New] Filtering by In queue and by In progress returns the same rows (round-trip of the mapped status)",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-032",
+      "title": "[New] In queue and In progress rows are shown with the same status colour and are never counted as paid",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-033",
+      "title": "[New] A full refund of a plan charge is never displayed at the payment-plan level",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-034",
+      "title": "[New] A partial refund of a plan charge shows no partial-refund indicator at the payment-plan level",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-035",
+      "title": "[New] A partially applied plan credit is returned by the Unapplied filter",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-036",
+      "title": "[New] The Unapplied filter returns a mixed set of plan credits and other open credits together",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-037",
+      "title": "[New] The Unapplied filter excludes credits that have been fully applied",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-038",
+      "title": "[New] A card-expiry failure shows a Failed transaction here while the plan shows the installment as Overdue",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-039",
+      "title": "[New] A declined card shows a Failed transaction here while the plan installment becomes Overdue",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-040",
+      "title": "[New] A without-gateway plan shows a Failed status here for the missed charge while the installment turns Overdue",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-041",
+      "title": "[New] Surcharge-related columns are hidden in the Payment Transaction Tracking grid (surcharge deferred to a separate ER)",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-042",
+      "title": "[New] Surcharge-related columns are also absent from the Payment Transaction Tracking export",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-043",
+      "title": "[New] A Without Gateway plan creates no transaction and no receipt automatically, so nothing is listed here",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-044",
+      "title": "[New] A manual Pay Now on a Without Gateway plan creates the first transaction visible in this screen",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-045",
+      "title": "[New] End-to-end: failed charge becomes Overdue on the plan and is cleared by a Pay Now, with both rows visible here",
+      "module": "Transaction Tracking",
+      "status": "planned",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-001",
+      "title": "Two panes (Notification / Reminder) each with an Event Type (Appointment / Payment Plan)",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-002",
+      "title": "Payment-Plan notification events: Payment successful, Payment failed, Payment Plan setup, Payment plan status change",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-003",
+      "title": "Payment-Plan reminder events: Payment Due, Card expiry",
+      "module": "Notification Reminder",
+      "status": "skipped",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-NRP-004",
+      "title": "Notification row fields: Active, Event Type, Event*, Mode* (All/Call/Email/Text), Template*",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-005",
+      "title": "Reminder row fields incl. To Be Sent (After/Before/Immediate + value + unit) and Template",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-006",
+      "title": "Duplicate reminder setup is not allowed (Active + Event Type + Event + Mode)",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-007",
+      "title": "Immediate reminder is restricted when Event Type = Payment Plan",
+      "module": "Notification Reminder",
+      "status": "clarification_required",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "reason": "Need to be discussed",
+      "statusComment": "Need to be discussed"
+    },
+    {
+      "testCaseId": "RPP-NRP-008",
+      "title": "Card-expiry reminder treats the last day of the month as the expiry date",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-009",
+      "title": "Notification/reminder emails use the clinic’s email setup as sender",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-010",
+      "title": "Scopes: Patient Chart (per patient) and General (clinic default); Patient Chart now includes the Notification pane",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-011",
+      "title": "Precedence: a Patient-Chart preference overrides the General default",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-012",
+      "title": "General scope shows the \"Consent to send reminder for New patients\" toggle",
+      "module": "Notification Reminder",
+      "status": "skipped",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "reason": "Not required",
+      "statusComment": "Not required"
+    },
+    {
+      "testCaseId": "RPP-NRP-013",
+      "title": "Pay Now payment triggers the patient notification",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-014",
+      "title": "Payment failed triggers the Payment-failed notification per configured mode",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-015",
+      "title": "Default letter templates for payment-plan reminders/notifications applied by default",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": "can select different templates from the template dropdown"
+    },
+    {
+      "testCaseId": "RPP-NRP-016",
+      "title": "Add and remove rows in each pane",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-017",
+      "title": "Validation: reminder needs a Template and a valid To-Be-Sent lead time",
+      "module": "Notification Reminder",
+      "status": "skipped",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "reason": "\"Description: replace with:\n\"\"Required-field validation for a Payment Plan reminder row.\"\"\n\nExpected Output: replace with:\n\"\"A reminder row cannot be saved when required Template or required To-Be-Sent value/unit is blank for Before/After. After required values are provided, Save succeeds.\"\"\n\nVerification Step: replace with:\n\"\"1. Add a Payment Plan reminder row. 2. Select event and mode but leave Template blank; Save and assert blocked. 3. Select Template, choose Before/After and leave lead-time value/unit incomplete; Save and assert blocked. 4. Enter a valid lead-time value and unit and Save; assert success.\"\"\nThis avoids inventing unsupported numeric min/max rules.\"",
+      "statusComment": "\"Description: replace with:\n\"\"Required-field validation for a Payment Plan reminder row.\"\"\n\nExpected Output: replace with:\n\"\"A reminder row cannot be saved when required Template or required To-Be-Sent value/unit is blank for Before/After. After required values are provided, Save succeeds.\"\"\n\nVerification Step: replace with:\n\"\"1. Add a Payment Plan reminder row. 2. Select event and mode but leave Template blank; Save and assert blocked. 3. Select Template, choose Before/After and leave lead-time value/unit incomplete; Save and assert blocked. 4. Enter a valid lead-time value and unit and Save; assert success.\"\"\nThis avoids inventing unsupported numeric min/max rules.\""
+    },
+    {
+      "testCaseId": "RPP-NRP-018",
+      "title": "Appointment event type still works (regression)",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-019",
+      "title": "Accessibility: keyboard-operable and screen-reader labelled",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-020",
+      "title": "Only authorized users can change General (clinic-level) preferences",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-021",
+      "title": "Visit Type and Provider options are disabled when the Event Type is Payment Plan in the Reminder Preference screen.\n- Open the Reminder Preference screen.\n- Set Event Type = Payment Plan.\n- Look at the Visit Type and Provider options.",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": "Visit Type/Provider disabled for Payment Plan."
+    },
+    {
+      "testCaseId": "RPP-NRP-022",
+      "title": "The \"Payment Plan setup\" notification fires when a plan is created, using the configured mode.\n- Configure a Payment Plan setup notification (mode Email / Text / Call / All).\n- Create and activate a new patient payment plan.",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": "Setup notification trigger."
+    },
+    {
+      "testCaseId": "RPP-NRP-023",
+      "title": "The \"Payment plan status change\" notification fires when a plan's status changes.\n- Configure a \"Payment plan status change\" notification.\n- Change a plan's status (e.g. active → inactive).",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": "Status-change notification trigger."
+    },
+    {
+      "testCaseId": "RPP-NRP-024",
+      "title": "The \"Payment Due\" reminder fires the configured lead time before the processing date.\n- Configure a Payment Due reminder with a \"Before\" lead time (e.g. 3 days).\n- Have a plan with an upcoming scheduled charge.",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": "Payment Due reminder trigger."
+    },
+    {
+      "testCaseId": "RPP-NRP-025",
+      "title": "The \"Card expiry\" reminder fires the configured lead time before the card expiry (treated as the last day of the expiring month).\n- Configure a Card expiry reminder with a \"Before\" lead time.\n- Use a saved card whose expiry month is approaching.",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": "Card expiry reminder trigger."
+    },
+    {
+      "testCaseId": "RPP-NRP-026",
+      "title": "[New] The new Agreement event is available in the notification preference event list",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-027",
+      "title": "[New] Clicking Agree & Continue on the payment plan agreement sends the agreement email when the event is configured",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-028",
+      "title": "[New] No agreement email is sent when the Agreement event is inactive or not configured",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-029",
+      "title": "[New] The Agreement event honours its configured Mode (All / Call / Email / Text)",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-030",
+      "title": "[New] Switching the Event Type back to Appointment re-enables the Visit Type and Provider options",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-031",
+      "title": "[New] A saved Payment Plan reminder row never stores a visit type or provider value",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-032",
+      "title": "[New] The Immediate option is not selectable (greyed/absent) for a Payment Plan reminder row",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-033",
+      "title": "[New] Switching a reminder row from Payment Plan to Appointment restores the Immediate option",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-034",
+      "title": "[New] Card expiry is taken as the last day of the expiry month for a 31-day and a 30-day month",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-035",
+      "title": "[New] Card expiry in February is taken as the last day of February, including a leap year",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-036",
+      "title": "[New] A card expiring in the current month is still treated as valid until the last day of that month",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-037",
+      "title": "[New] Both notification and reminder emails for payment plans go out from the clinic's email setup",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-038",
+      "title": "[New] Changing the clinic email setup changes the sender of subsequent payment-plan emails",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-039",
+      "title": "[New] Every payment-plan notification/reminder event row comes with its default letter template preselected",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-040",
+      "title": "[New] The default payment-plan letter templates are present in every database by default",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-041",
+      "title": "[New] End-to-end: the Payment Successful notification fires on a successful scheduled charge using its configured mode",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-042",
+      "title": "[New] End-to-end: the Payment Failed notification fires on a failed charge using its configured mode",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-043",
+      "title": "[New] End-to-end: the Payment Plan Setup notification fires on plan creation using its configured mode",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-044",
+      "title": "[New] End-to-end: the Payment Plan Status Change notification fires on every plan status change using its configured mode",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-045",
+      "title": "[New] End-to-end: the Payment Due reminder fires before the processing date using its configured mode",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-046",
+      "title": "[New] End-to-end: the Card Expiry reminder fires before the last day of the expiry month using its configured mode",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-047",
+      "title": "[New] End-to-end: the Agreement event fires when the patient agrees, honouring its configured mode",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-NRP-048",
+      "title": "[New] An inactive payment-plan notification/reminder row sends nothing while an active one with Mode = All sends on every channel",
+      "module": "Notification Reminder",
+      "status": "planned",
+      "specFile": "tests/generated/notification-reminder.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-001",
+      "title": "Agreement template renders all five sections in order.\n- Open the Agreement preview on the patient payment plan setup screen.\n- Confirm the sections present.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Agreement template structure (Agreement.pdf)."
+    },
+    {
+      "testCaseId": "RPP-TPL-002",
+      "title": "Agreement Payment Details merge fields populate from the plan.\n- Open the Agreement preview for a plan with a saved card and an end date.\n- Check each Payment Details line.",
+      "module": "Templates & Letters",
+      "status": "skipped",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "reason": "Agreement merge fields.",
+      "statusComment": "Agreement merge fields."
+    },
+    {
+      "testCaseId": "RPP-TPL-003",
+      "title": "Agreement notes that if the remaining balance is less than the payment amount, the final payment is only the remaining balance.\n- Read the Payment Amount line in the Agreement.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Agreement final-payment clause."
+    },
+    {
+      "testCaseId": "RPP-TPL-004",
+      "title": "Agreement Terms: a separate manual payment does not stop, reduce, or delay the next scheduled auto payment.\n- Read the Manual Payments clause under Terms & Conditions.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Agreement manual-payments clause."
+    },
+    {
+      "testCaseId": "RPP-TPL-005",
+      "title": "Agreement Terms: failed payments may be re-attempted within 30 calendar days, possibly with a returned-payment fee. \n- Read the Failed Payments clause.",
+      "module": "Templates & Letters",
+      "status": "skipped",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "reason": "Agreement failed-payments clause. Not finalized.",
+      "statusComment": "Agreement failed-payments clause. Not finalized."
+    },
+    {
+      "testCaseId": "RPP-TPL-006",
+      "title": "Agreement Cancellation Policy requires at least 3 business days' notice before the payment date.\n- Read the Cancellation Policy.",
+      "module": "Templates & Letters",
+      "status": "skipped",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "reason": "Agreement cancellation clause.",
+      "statusComment": "Agreement cancellation clause."
+    },
+    {
+      "testCaseId": "RPP-TPL-007",
+      "title": "Agreement \"Agree & Continue\" is the execution/authorization step that activates the plan.\n- Read the Execution & Authorization section.\n- Tick \"Agree & Continue\".",
+      "module": "Templates & Letters",
+      "status": "skipped",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "reason": "\"Description: replace with:\n\"\"Agreement 'Agree & Continue' records authorization; for a mandatory agreement it is required before the saved plan can become Active.\"\"\n\nExpected Output: replace with:\n\"\"Agree & Continue records authorization. When client setting = Yes & Keep it mandatory, closing without agreement leaves the saved plan Inactive; agreeing allows it to become Active.\"\"\n\nVerification Step: replace with:\n\"\"1. Set Show Agreement on Payment Plan = Yes & Keep it mandatory. 2. Save a new plan. 3. Close Agreement without agreeing and assert plan is saved Inactive. 4. Reopen Agreement and click Agree & Continue. 5. Assert authorization is recorded and plan becomes Active.\"\"\n\"",
+      "statusComment": "\"Description: replace with:\n\"\"Agreement 'Agree & Continue' records authorization; for a mandatory agreement it is required before the saved plan can become Active.\"\"\n\nExpected Output: replace with:\n\"\"Agree & Continue records authorization. When client setting = Yes & Keep it mandatory, closing without agreement leaves the saved plan Inactive; agreeing allows it to become Active.\"\"\n\nVerification Step: replace with:\n\"\"1. Set Show Agreement on Payment Plan = Yes & Keep it mandatory. 2. Save a new plan. 3. Close Agreement without agreeing and assert plan is saved Inactive. 4. Reopen Agreement and click Agree & Continue. 5. Assert authorization is recorded and plan becomes Active.\"\"\n\""
+    },
+    {
+      "testCaseId": "RPP-TPL-008",
+      "title": "Payment Plan Setup letter (Email + Text) populates correctly; the outstanding-balance line shows only when an end date exists.\n- Trigger the Payment Plan Setup notification for a plan WITH an end date, then for one WITHOUT.\n- Check both the Email and Text versions.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Setup template Email+Text + conditional balance."
+    },
+    {
+      "testCaseId": "RPP-TPL-009",
+      "title": "Payment Plan Status Update letter (Email + Text) shows previous status, new status and effective date; balance line only with an end date.\n- Trigger the Status Update notification after a status change.\n- Check Email and Text.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Status-update template."
+    },
+    {
+      "testCaseId": "RPP-TPL-010",
+      "title": "Payment Successful letter (Email + Text) shows amount, date, method, confirmation number; plan balance only with an end date.\n- Trigger the Payment Successful notification after a successful charge.\n- Check Email and Text.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Payment-successful template."
+    },
+    {
+      "testCaseId": "RPP-TPL-011",
+      "title": "Payment Failed letter (Email + Text) states the failed amount/date, the retry timing, and next steps.\n- Trigger the Payment Failed notification after a declined charge.\n- Check Email and Text.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Payment-failed template."
+    },
+    {
+      "testCaseId": "RPP-TPL-012",
+      "title": "Card Expiring reminder (Email + Text) shows the card last 4 and treats the expiry as the last day of the expiring month.\n- Trigger the Card Expiring reminder for a card whose month is ending.\n- Check Email and Text.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Card-expiry template + last-day rule."
+    },
+    {
+      "testCaseId": "RPP-TPL-013",
+      "title": "Payment Due reminder (Email + Text) shows the scheduled amount, processing date, method, and \"in X days\".\n- Trigger the Payment Due reminder ahead of a scheduled charge.\n- Check Email and Text.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Payment-due template."
+    },
+    {
+      "testCaseId": "RPP-TPL-014",
+      "title": "Across all letters, balance/outstanding lines appear only when the plan has an end date, and the clinic email setup is the sender.\n- Trigger any two payment-plan letters — one for a plan with an end date, one without.\n- Check the balance lines and the email sender.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": "Conditional balance + clinic-email sender across templates."
+    },
+    {
+      "testCaseId": "RPP-TPL-015",
+      "title": "[New] Confirmation Number in the Payment Successful letter is filled with the payment number generated for the credit-card transaction.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-016",
+      "title": "[New] Confirmation Number in the Payment Successful letter matches the payment number shown on Transaction Tracking for the same charge.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-017",
+      "title": "[New] A Pay Now credit-card payment also produces a Payment Successful letter carrying that Pay Now transaction payment number.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-018",
+      "title": "[New] Card Expiry reminder always prints the LAST day of the expiry month as the card expiry date.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-019",
+      "title": "[New] Card Expiry reminder last-day rule is correct for 31-day, 30-day, 28-day and leap-year February expiry months.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-020",
+      "title": "[New] A card is not treated as expired before the last day of its expiry month, so scheduled charges before that day still run.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-021",
+      "title": "[New] Every payment-plan notification and reminder e-mail is sent from the clinic e-mail setup address.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-022",
+      "title": "[New] Changing the clinic e-mail setup changes the sender of subsequently generated payment-plan e-mails.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-023",
+      "title": "[New] Payment-plan e-mails use the e-mail setup of the clinic the plan belongs to when more than one clinic is configured.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-024",
+      "title": "[New] A default letter template exists for each of the seven payment-plan events: Payment Successful, Payment Failed, Payment Plan Setup, Payment Plan Status Change, Payment Due, Card Expiry and Payment Plan Agreement.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-025",
+      "title": "[New] The seven payment-plan default templates are applied to all databases by default, without any manual setup.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-026",
+      "title": "[New] Each payment-plan default template provides both the Email and the Text layout where the event supports both channels.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-027",
+      "title": "[New] Clicking Agree & Continue on the Agreement sends the agreement to the patient by e-mail when the agreement event is set in the notification preference.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-028",
+      "title": "[New] The agreement e-mail carries the agreement document itself, showing the terms the patient accepted.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-029",
+      "title": "[New] Confirm whether the agreement e-mail must also carry a body text along with the agreement document, and what that body text should say.",
+      "module": "Templates & Letters",
+      "status": "clarification_required",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "reason": "Clarification Required - source thread asks whether the agreement e-mail should include a text body along with the agreement document, and what its content should be; no answer given.",
+      "statusComment": "Clarification Required - source thread asks whether the agreement e-mail should include a text body along with the agreement document, and what its content should be; no answer given."
+    },
+    {
+      "testCaseId": "RPP-TPL-030",
+      "title": "[New] The agreement e-mail is only sent when the Agreement event is enabled in the notification preference.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-031",
+      "title": "[New] The generated agreement document is stored at the patient level and can be re-opened from the Agreement button.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-032",
+      "title": "[New] Updating the payment plan clears the previous agreement document and a new agreement is shown.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-033",
+      "title": "[New] The regenerated agreement carries the UPDATED plan terms.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-034",
+      "title": "[New] If the regenerated agreement is skipped after a plan update, it can be re-opened later from the Agreement button with the new terms.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-035",
+      "title": "[New] No surcharge line or field appears in any payment-plan notification or reminder letter, because surcharge is deferred to a separate ER.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-036",
+      "title": "[New] The receipt generated from a payment plan payment shows no surcharge field or column.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TPL-037",
+      "title": "[New] The Payment Plan Agreement document contains no surcharge clause, field or amount.",
+      "module": "Templates & Letters",
+      "status": "planned",
+      "specFile": "tests/generated/templates-letters.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-001",
+      "title": "[New] The Reconciliation Preference field is visible on the patient payment plan and auto-populates to \"No\" (Do not reconcile) on a new plan.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-002",
+      "title": "[New] The Reconciliation Preference offers exactly three options: Do not reconcile, Reconcile to self/guarantor only, and Reconcile to family members balance.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-003",
+      "title": "[New] Do not reconcile: the payment creates an Open Credit that is NOT applied to any balance.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-004",
+      "title": "[New] Reconcile to self / guarantor only: the Open Credit is applied when the guarantor and the patient are the same person.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-005",
+      "title": "[New] Reconcile to self / guarantor only: nothing is reconciled when the guarantor is a different person from the patient.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-006",
+      "title": "[New] The \"Reconcile to family members balance\" option is available only when Patient Payment From is set to Immediate Guarantor / Patient / Dependent Only.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-007",
+      "title": "[New] The family reconciliation option is not available when Patient Payment From is not set to Immediate Guarantor / Patient / Dependent Only.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-008",
+      "title": "[New] Reconcile to family members balance: the Open Credit is applied across the guarantor and the dependents as allowed by the \"Allow Payment From\" client setting.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-009",
+      "title": "[New] The user can change the Reconciliation Preference at any time, including in the middle of a running plan.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-010",
+      "title": "[New] A changed Reconciliation Preference applies to reconciliation performed after the change, not retrospectively to Open Credits already processed.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-011",
+      "title": "[New] Switching the preference from a reconcile option back to Do not reconcile stops further automatic application.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-012",
+      "title": "[New] The chosen Reconciliation Preference is stored with the plan and survives reopening, refreshing and re-login.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-013",
+      "title": "[New] Auto reconciliation applies the Open Credit to charges by Date of Service, earliest first.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-014",
+      "title": "[New] Auto reconciliation follows pure Date of Service order with NO patient-first or guarantor-first priority.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-015",
+      "title": "[New] When reconciling a guarantor or dependent balance the system checks that the Date of Service falls inside that person from–to date range.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-016",
+      "title": "[New] Charges whose Date of Service falls outside the guarantor/dependent from–to range are skipped and the next eligible charge is taken instead.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-017",
+      "title": "[New] Boundary: a charge whose Date of Service is exactly the guarantor/dependent FROM date is reconciled.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-018",
+      "title": "[New] Boundary: a charge whose Date of Service is exactly the guarantor/dependent TO date is reconciled.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-019",
+      "title": "[New] Only the patient-responsible amount is reconciled by auto reconciliation.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-020",
+      "title": "[New] An amount that is entirely pending with insurance is never reconciled by auto reconciliation.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-021",
+      "title": "[New] Auto reconciliation is carried out by the Open Credit reconcile event scheduler.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-022",
+      "title": "[New] If the Open Credit reconcile event scheduler has not run, the Open Credit stays unapplied even when the preference is set to reconcile.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-023",
+      "title": "[New] Zero balance: when there is nothing outstanding to reconcile the Open Credit stays fully unapplied.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-024",
+      "title": "[New] Open Credit larger than the total outstanding balance: the leftover amount stays unapplied.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-025",
+      "title": "[New] Open Credit smaller than the earliest charge: the earliest-DOS charge is partially applied and the rest stays outstanding.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-026",
+      "title": "[New] End-to-end: a successful plan charge creates an Open Credit that the scheduler applies to the earliest eligible balances per the chosen preference.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-027",
+      "title": "[New] Self / guarantor only: dependents balances are never touched even when the patient has nothing outstanding.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-028",
+      "title": "[New] The reconciliation preference does not change how the payment itself is collected or how the receipt is created.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-029",
+      "title": "[New] The patient statement shows payment plans associated with the patient or their contact guarantor only.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-030",
+      "title": "[New] The patient statement does not show payment plans of a guarantor who is not the patient contact guarantor.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-031",
+      "title": "[New] Guarantor statement with Family Billing OFF shows payment plans associated with the patients and the guarantor.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-032",
+      "title": "[New] Guarantor statement with Family Billing ON shows payment plans associated with the guarantor, the dependents and the patients.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-033",
+      "title": "[New] With Family Billing TRUE, both the patient and the guarantor statements include ALL linked patient/guarantor payment plan information.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-034",
+      "title": "[New] With Family Billing FALSE, the statements show payment plan information only for directly linked patients/guarantors.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-035",
+      "title": "[New] Toggling Family Billing changes the payment plan information included on the next generated statement.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-036",
+      "title": "[New] Statement payment plan information matches the plan screen values for every listed plan.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-037",
+      "title": "[New] Statements remain correct for a patient or guarantor who has no payment plan at all.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-REC-038",
+      "title": "[New] Reconciliation and statement behaviour stay consistent for a plan whose preference was changed mid-schedule.",
+      "module": "Reconciliation & Statements",
+      "status": "planned",
+      "specFile": "tests/generated/reconciliation-statements.spec.ts",
+      "statusComment": ""
+    },
+    {
+      "testCaseId": "RPP-TXN-015",
+      "title": "Grand-total row sums the monetary columns for visible rows",
+      "module": "Transaction Tracking",
+      "status": "blocked",
+      "specFile": "tests/generated/transaction-tracking.spec.ts",
+      "reason": "Verification steps are missing from source test case",
+      "statusComment": "There is not summary of grand total"
+    }
+  ]
+}

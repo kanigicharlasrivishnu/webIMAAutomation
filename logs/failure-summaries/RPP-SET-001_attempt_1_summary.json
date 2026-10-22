@@ -1,0 +1,19 @@
+{
+  "testCaseId": "RPP-SET-001",
+  "testTitle": "RPP-SET-001: Open the Recurring Payment Plan window from Patient Master > Payment Plan and confirm the patient list view loads with that patient's plans and a pinned grand-total row.",
+  "expectedBehavior": "Expected step assertions to pass as specified in test case",
+  "actualObservedBehavior": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.pinned-grand-total, tfoot tr.grand-total')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.pinned-grand-total, tfoot tr.grand-total') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.pinned-grand-total, tfoot tr.grand-total')\u001b[22m\n",
+  "errorMessage": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.pinned-grand-total, tfoot tr.grand-total')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.pinned-grand-total, tfoot tr.grand-total') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.pinned-grand-total, tfoot tr.grand-total')\u001b[22m\n",
+  "classification": "LOCATOR_NOT_FOUND_OR_AMBIGUOUS",
+  "confidence": 0.9,
+  "attemptNumber": 1,
+  "totalAttempts": 2,
+  "passedOnRetry": false,
+  "screenshotPath": "test-results/failure_RPP-SET-001__Open_the_Recurring_Payment_Plan_windo_attempt_1.png",
+  "logs": [
+    "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.pinned-grand-total, tfoot tr.grand-total')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.pinned-grand-total, tfoot tr.grand-total') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.pinned-grand-total, tfoot tr.grand-total')\u001b[22m\n\n    at C:\\Users\\srivishnuk\\.gemini\\antigravity\\scratch\\enterprise-playwright-framework\\tests\\generated\\payment-plan-setup.spec.ts:54:66\n    at C:\\Users\\srivishnuk\\.gemini\\antigravity\\scratch\\enterprise-playwright-framework\\tests\\generated\\payment-plan-setup.spec.ts:53:5"
+  ],
+  "likelyCause": "Target DOM element not found within configured timeout or DOM altered by application update.",
+  "suggestedAction": "Trigger AI self-healing proposal to locate updated element attributes or inspect DOM snapshot.",
+  "healingProposalGenerated": false
+}

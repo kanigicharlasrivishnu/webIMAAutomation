@@ -1,4 +1,4 @@
-﻿# Setup & Installation Guide
+# Setup & Installation Guide
 
 ## 1. Prerequisites
 
@@ -31,9 +31,9 @@
    Copy `.env.example` to `.env` and configure target application credentials:
    ```env
    BASE_URL=https://webims.meditab.local/#/login
-   CLINIC=your-clinic-code
-   APP_USERNAME=your-app-username
-   PASSWORD=your-app-password
+   CLINIC=cnhf5
+   USERNAME=vishnu
+   PASSWORD=vishnu
    BROWSER=chromium
    HEADLESS=true
    RETRIES=5

@@ -1,0 +1,19 @@
+{
+  "testCaseId": "RPP-PLAN-001",
+  "testTitle": "RPP-PLAN-001: Open the Recurring Payment Plan window from Patient Master > Payment Plan and confirm the patient list view loads with that patient’s plans and a pinned grand-total row. [@recurring-payment-plan @positive @sanity @smoke @regression]",
+  "expectedBehavior": "Expected step assertions to pass as specified in test case",
+  "actualObservedBehavior": "TimeoutError: locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('table thead th').first() to be visible\u001b[22m\n",
+  "errorMessage": "TimeoutError: locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('table thead th').first() to be visible\u001b[22m\n",
+  "classification": "LOCATOR_NOT_FOUND_OR_AMBIGUOUS",
+  "confidence": 0.9,
+  "attemptNumber": 1,
+  "totalAttempts": 2,
+  "passedOnRetry": false,
+  "screenshotPath": "test-results/failure_RPP-PLAN-001__Open_the_Recurring_Payment_Plan_wind_attempt_1.png",
+  "logs": [
+    "TimeoutError: locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('table thead th').first() to be visible\u001b[22m\n\n    at RecurringPaymentPlanPage.getTableHeaders (C:\\Users\\srivishnuk\\.gemini\\antigravity\\scratch\\enterprise-playwright-framework\\src\\pages\\RecurringPaymentPlanPage.ts:205:27)\n    at C:\\Users\\srivishnuk\\.gemini\\antigravity\\scratch\\enterprise-playwright-framework\\tests\\generated\\recurring-payment-plan.spec.ts:44:54\n    at C:\\Users\\srivishnuk\\.gemini\\antigravity\\scratch\\enterprise-playwright-framework\\tests\\generated\\recurring-payment-plan.spec.ts:42:5"
+  ],
+  "likelyCause": "Target DOM element not found within configured timeout or DOM altered by application update.",
+  "suggestedAction": "Trigger AI self-healing proposal to locate updated element attributes or inspect DOM snapshot.",
+  "healingProposalGenerated": false
+}
